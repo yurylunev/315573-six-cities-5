@@ -10,11 +10,11 @@ const PlacesCards = (props) => {
   );
 };
 
-const MainScreen = (props) => {
+const Main = (props) => {
   const {placesList} = props;
 
   return (
-    <React.Fragment>
+    <>
       <div className="page page--gray page--main">
         <header className="header">
           <div className="container">
@@ -109,7 +109,7 @@ const MainScreen = (props) => {
           </div>
         </main>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
@@ -126,7 +126,7 @@ PlacesCards.propTypes = {
   }))
 };
 
-MainScreen.propTypes = {
+Main.propTypes = {
   placesList: PropTypes.arrayOf(PropTypes.shape({
     mark: PropTypes.string,
     image: PropTypes.string.isRequired,
@@ -139,4 +139,4 @@ MainScreen.propTypes = {
   }))
 };
 
-export default MainScreen;
+export default Main;
