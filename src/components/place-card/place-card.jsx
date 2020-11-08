@@ -29,14 +29,14 @@ const PlaceCardMark = (props) => {
 };
 
 const PlaceCard = (props) => {
-  const {mark, image, price, isBookmark, rating, name, type} = props.dataPlaceCard;
+  const {Properties, Images, Price, ratingStars, Features} = props.dataPlaceCard;
 
   return (
     <article className="cities__place-card place-card">
-      <PlaceCardMark mark={mark} />
+      <PlaceCardMark mark={Properties.mark} />
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
-          <img className="place-card__image" src={image}
+          <img className="place-card__image" src={Images[0]}
             width="260"
             height="200"
             alt="Place image"/>
@@ -45,21 +45,21 @@ const PlaceCard = (props) => {
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">&euro;{price}</b>
-            <span className="place-card__price-text">&#47;&nbsp;night</span>
+            <b className="place-card__price-value">{Price.currency}{Price.value}&nbsp;</b>
+            <span className="place-card__price-text">&#47;&nbsp;{Price.period}</span>
           </div>
-          <Bookmarks isBookmark={isBookmark} />
+          <Bookmarks isBookmark={Properties.isBookmark} />
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${rating}%`}}/>
+            <span style={{width: `${Math.round(ratingStars * 20)}%`}}/>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{name}</a>
+          <a href="#">{Properties.name}</a>
         </h2>
-        <p className="place-card__type">{type}</p>
+        <p className="place-card__type">{Features.entire}</p>
       </div>
     </article>
   );
@@ -75,14 +75,23 @@ PlaceCardMark.propTypes = {
 
 PlaceCard.propTypes = {
   dataPlaceCard: PropTypes.shape({
-    mark: PropTypes.string,
-    image: PropTypes.string.isRequired,
-    currency: PropTypes.string,
-    price: PropTypes.number.isRequired,
-    isBookmark: PropTypes.bool.isRequired,
-    rating: PropTypes.number,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired
+    Images: PropTypes.arrayOf(PropTypes.string).isRequired,
+    Properties: PropTypes.shape({
+      mark: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      isBookmark: PropTypes.bool.isRequired
+    }).isRequired,
+    Price: PropTypes.shape({
+      currency: PropTypes.string.isRequired,
+      period: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired
+    }),
+    ratingStars: PropTypes.number,
+    Features: PropTypes.shape({
+      entire: PropTypes.string.isRequired,
+      bedrooms: PropTypes.number.isRequired,
+      adults: PropTypes.number.isRequired
+    }).isRequired
   })
 };
 
