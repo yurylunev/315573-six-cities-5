@@ -1,6 +1,6 @@
 const Options = {
   Price: {
-    currency: `&euro;`,
+    currency: `€`,
     period: `night`
   }
 };
