@@ -10,7 +10,7 @@ const Offers = [
       isBookmark: false
     },
     ratingStars: 4.8,
-    Features: [{entire: `Apartment`}, {bedrooms: 3}, {adults: 4}],
+    Features: {entire: `Apartment`, bedrooms: 3, adults: 4},
     Price: Object.assign(Options.Price, {value: 120}),
     InsideList: [`Wi-Fi`,
       `Washing machine`,
