@@ -114,16 +114,7 @@ const Main = (props) => {
 };
 
 PlacesCards.propTypes = {
-  cards: PropTypes.arrayOf(PropTypes.shape({
-    mark: PropTypes.string,
-    image: PropTypes.string.isRequired,
-    currency: PropTypes.string,
-    price: PropTypes.number.isRequired,
-    isBookmark: PropTypes.bool.isRequired,
-    rating: PropTypes.number,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired
-  }))
+  cards: PropTypes.array.isRequired
 };
 
 Main.propTypes = {
