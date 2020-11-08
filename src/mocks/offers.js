@@ -3,7 +3,7 @@ import Options from "./options";
 const Offers = [
   {
     offerId: 1,
-    Images: [`img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
+    Images: [`img/apartment-01.jpg`, `img/room.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
     Properties: {
       mark: `Premium`,
       name: `Beautiful & luxurious studio at great location`,
@@ -31,7 +31,7 @@ const Offers = [
   },
   {
     offerId: 2,
-    Images: [`img/apartment-01.jpg`, `img/room.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
+    Images: [`img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
     Properties: {
       name: `Wood and stone place`,
       isBookmark: true
