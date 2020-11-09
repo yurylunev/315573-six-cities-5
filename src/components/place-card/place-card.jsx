@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {OfferTypes} from "../../mocks/offers.proptypes";
 
 const Bookmarks = (props) => {
   const {isBookmark} = props;
@@ -24,15 +25,15 @@ const PlaceCardMark = (props) => {
       </div>
     );
   } else {
-    return <React.Fragment />;
+    return <></>;
   }
 };
 
 const PlaceCard = (props) => {
-  const {Properties, Images, Price, ratingStars, Features} = props.dataPlaceCard;
+  const {Properties, Images, Price, ratingStars, Features} = props.Card;
 
   return (
-    <article className="cities__place-card place-card">
+    <article className="cities__place-card place-card" onMouseMove={props.moveHandler}>
       <PlaceCardMark mark={Properties.mark} />
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
@@ -74,25 +75,8 @@ PlaceCardMark.propTypes = {
 };
 
 PlaceCard.propTypes = {
-  dataPlaceCard: PropTypes.shape({
-    Images: PropTypes.arrayOf(PropTypes.string).isRequired,
-    Properties: PropTypes.shape({
-      mark: PropTypes.string,
-      name: PropTypes.string.isRequired,
-      isBookmark: PropTypes.bool.isRequired
-    }).isRequired,
-    Price: PropTypes.shape({
-      currency: PropTypes.string.isRequired,
-      period: PropTypes.string.isRequired,
-      value: PropTypes.number.isRequired
-    }),
-    ratingStars: PropTypes.number,
-    Features: PropTypes.shape({
-      entire: PropTypes.string.isRequired,
-      bedrooms: PropTypes.number.isRequired,
-      adults: PropTypes.number.isRequired
-    }).isRequired
-  })
+  Card: OfferTypes,
+  moveHandler: PropTypes.func.isRequired
 };
 
 export default PlaceCard;

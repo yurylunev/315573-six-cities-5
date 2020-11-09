@@ -1,14 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-import PlaceCard from "../place-card/place-card";
-
-const PlacesCards = (props) => {
-  const {cards} = props;
-
-  return (
-    cards.map((card, i)=><PlaceCard key={i} dataPlaceCard={card}/>)
-  );
-};
+import {OffersListTypes} from "../../mocks/offers.proptypes";
+import Places from "../places/places";
 
 const Main = (props) => {
   const {placesList} = props;
@@ -99,7 +91,7 @@ const Main = (props) => {
                   </ul>
                 </form>
                 <div className="cities__places-list places__list tabs__content">
-                  <PlacesCards cards={placesList}/>
+                  <Places placesList={placesList}/>
                 </div>
               </section>
               <div className="cities__right-section">
@@ -113,21 +105,6 @@ const Main = (props) => {
   );
 };
 
-PlacesCards.propTypes = {
-  cards: PropTypes.array.isRequired
-};
-
-Main.propTypes = {
-  placesList: PropTypes.arrayOf(PropTypes.shape({
-    mark: PropTypes.string,
-    image: PropTypes.string.isRequired,
-    currency: PropTypes.string,
-    price: PropTypes.number.isRequired,
-    isBookmark: PropTypes.bool.isRequired,
-    rating: PropTypes.number,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired
-  }))
-};
+Main.propTypes = OffersListTypes;
 
 export default Main;
