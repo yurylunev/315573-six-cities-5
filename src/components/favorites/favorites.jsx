@@ -1,6 +1,15 @@
 import React from 'react';
+import {OffersListTypes} from "../../mocks/offers.proptypes";
+import FavoritesEmpty from "../favorites-empty/favorites-empty";
+import FavoritesLocations from "../favorites-location/favorites-location";
 
-const Favorites = () => {
+const Favorites = (props) => {
+  const favoritesList = props.placesList;
+  const favoritesCities = new Set(favoritesList.map((card)=>card.city));
+  if (favoritesList.length === 0) {
+    return <FavoritesEmpty />;
+  }
+
   return (
     <div className="page page--favorites-empty">
       <header className="header">
@@ -26,19 +35,18 @@ const Favorites = () => {
           </div>
         </div>
       </header>
-
-      <main className="page__main page__main--favorites page__main--favorites-empty">
+      <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">
-          <section className="favorites favorites--empty">
-            <h1 className="visually-hidden">Favorites (empty)</h1>
-            <div className="favorites__status-wrapper">
-              <b className="favorites__status">Nothing yet saved.</b>
-              <p className="favorites__status-description">Save properties to narrow down search or plan
-                                yor future trips.</p>
-            </div>
+          <section className="favorites">
+            <h1 className="favorites__title">Saved listing</h1>
+            <ul className="favorites__list">
+              {[...favoritesCities].map((cityName, i) => {
+                return <FavoritesLocations key={i} favoritesList={favoritesList.filter((offer)=>offer.city === cityName)}/>;
+              })}
+            </ul>
           </section>
         </div>
-      </main>
+      </main>;
       <footer className="footer">
         <a className="footer__logo-link" href="main.html">
           <img className="footer__logo" src="img/logo.svg" alt="6 cities logo" width="64" height="33"/>
@@ -47,5 +55,7 @@ const Favorites = () => {
     </div>
   );
 };
+
+Favorites.propTypes = OffersListTypes;
 
 export default Favorites;

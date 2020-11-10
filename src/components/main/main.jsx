@@ -3,7 +3,8 @@ import {OffersListTypes} from "../../mocks/offers.proptypes";
 import Places from "../places/places";
 
 const Main = (props) => {
-  const {placesList} = props;
+  const currentCity = props.placesList[0].city;
+  const placesList = props.placesList.filter((place) => place.city === currentCity);
 
   return (
     <>
@@ -74,7 +75,7 @@ const Main = (props) => {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">312 places to stay in Amsterdam</b>
+                <b className="places__found">{placesList.length} places to stay in {currentCity}</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex="0">

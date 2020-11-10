@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 
 const OfferTypes = PropTypes.shape({
   offerId: PropTypes.number.isRequired,
+  city: PropTypes.string.isRequired,
   Images: PropTypes.arrayOf(PropTypes.string).isRequired,
   Properties: PropTypes.shape({
     mark: PropTypes.string,

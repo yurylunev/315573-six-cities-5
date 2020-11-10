@@ -19,7 +19,7 @@ const App = (props) => {
           <SignIn/>
         </Route>
         <Route exact path="/favorites">
-          <Favorites/>
+          <Favorites placesList={placesList.filter((place) => place.Properties.isBookmark)}/>
         </Route>
         <Route path="/offer/:id" exact component={Room}>
         </Route>
