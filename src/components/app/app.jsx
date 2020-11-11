@@ -13,15 +13,16 @@ const App = (props) => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main placesList={placesList}/>
+          <Main placesList={placesList} />
         </Route>
         <Route exact path="/login">
           <SignIn/>
         </Route>
         <Route exact path="/favorites">
-          <Favorites placesList={placesList.filter((place) => place.Properties.isBookmark)}/>
+          <Favorites placesList={placesList.filter((place) => place.Properties.isBookmark)} />
         </Route>
-        <Route path="/offer/:id" exact component={Room}>
+        <Route exact path="/offer/:id">
+          <Room offer={placesList[0]} />
         </Route>
       </Switch>
     </BrowserRouter>

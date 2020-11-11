@@ -1,8 +1,9 @@
 import React from "react";
 import {OfferTypes} from "../../mocks/offers.proptypes";
+import PlaceCardInfo from "../place-card-info/place-card-info";
 
 const FavoritesCard = (props) => {
-  const {Price, ratingStars, Features, Properties, Images} = props.Offer;
+  const {Price, ratingStars, Features, Properties, Images} = props.card;
 
   return <article className="favorites__card place-card">
     <div className="favorites__image-wrapper place-card__image-wrapper">
@@ -11,36 +12,15 @@ const FavoritesCard = (props) => {
           alt="Place image" />
       </a>
     </div>
-    <div className="favorites__card-info place-card__info">
-      <div className="place-card__price-wrapper">
-        <div className="place-card__price">
-          <b className="place-card__price-value">{Price.currency}{Price.value}</b>
-          <span className="place-card__price-text">&#47;&nbsp;{Price.period}</span>
-        </div>
-        <button className="place-card__bookmark-button place-card__bookmark-button--active button"
-          type="button">
-          <svg className="place-card__bookmark-icon" width="18" height="19">
-            <use xlinkHref="#icon-bookmark" />
-          </svg>
-          <span className="visually-hidden">In bookmarks</span>
-        </button>
-      </div>
-      <div className="place-card__rating rating">
-        <div className="place-card__stars rating__stars">
-          <span style={{width: `${Math.round(ratingStars * 20)}%`}} />
-          <span className="visually-hidden">Rating</span>
-        </div>
-      </div>
-      <h2 className="place-card__name">
-        <a href="#">{Properties.name}</a>
-      </h2>
-      <p className="place-card__type">{Features.entire}</p>
-    </div>
+    <PlaceCardInfo
+      price={Price} isBookmark={Properties.isBookmark}
+      ratingStars={ratingStars} cardName={Properties.name}
+      cardType={Features.entire} isFavoritesList={true}/>
   </article>;
 };
 
 FavoritesCard.propTypes = {
-  Offer: OfferTypes
+  card: OfferTypes
 };
 
 export default FavoritesCard;
