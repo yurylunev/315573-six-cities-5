@@ -1,6 +1,11 @@
 import React from "react";
+import {OfferTypes} from "../../mocks/offers.proptypes";
+import PropertyGallery from "../property-gallery/property-gallery";
+import PropertyMark from "../property-mark/property-mark";
 
-const Room = () => {
+const Room = (props) => {
+  const {offer} = props;
+
   return (
     <div className="page">
       <header className="header">
@@ -30,32 +35,11 @@ const Room = () => {
       <main className="page__main page__main--property">
         <section className="property">
           <div className="property__gallery-container container">
-            <div className="property__gallery">
-              <div className="property__image-wrapper">
-                <img className="property__image" src="/img/room.jpg" alt="Photo studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="/img/apartment-01.jpg" alt="Photo studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="/img/apartment-02.jpg" alt="Photo studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="/img/apartment-03.jpg" alt="Photo studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="/img/studio-01.jpg" alt="Photo studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="/img/apartment-01.jpg" alt="Photo studio"/>
-              </div>
-            </div>
+            <PropertyGallery images={offer.Images}/>
           </div>
           <div className="property__container container">
             <div className="property__wrapper">
-              <div className="property__mark">
-                <span>Premium</span>
-              </div>
+              {(offer.Properties.mark !== undefined) ? <PropertyMark /> : null}
               <div className="property__name-wrapper">
                 <h1 className="property__name">
                                     Beautiful &amp; luxurious studio at great location
@@ -358,6 +342,10 @@ const Room = () => {
       </main>
     </div>
   );
+};
+
+Room.propTypes = {
+  offer: OfferTypes
 };
 
 export default Room;

@@ -15,8 +15,8 @@ const FavoritesLocations = (props) => {
       </div>
     </div>
     <div className="favorites__places">
-      {favoritesList.map((offer, i)=>{
-        return <FavoritesCard key={i} Offer={offer}/>;
+      {favoritesList.map((card, i)=>{
+        return <FavoritesCard key={i} card={card}/>;
       })}
     </div>
   </li>;

@@ -12,12 +12,12 @@ class Places extends React.PureComponent {
 
   render() {
     return <div className="cities__places-list places__list tabs__content">
-      {this.props.placesList.map((Card, i) => {
+      {this.props.placesList.map((place, i) => {
         return <PlaceCard
           key={i}
-          Card={Card}
+          card={place}
           moveHandler={() => {
-            this.setState({activeCard: Card});
+            this.setState({activeCard: place});
           }}
         />;
       })}
