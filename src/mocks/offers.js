@@ -11,7 +11,7 @@ const Offers = [
       isBookmark: false
     },
     ratingStars: 4.8,
-    Features: {entire: `Apartment`, bedrooms: 3, adults: 4},
+    Features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
     Price: Object.assign({}, Options.Price, {value: 120}),
     InsideList: [`Wi-Fi`,
       `Washing machine`,
@@ -39,7 +39,7 @@ const Offers = [
       isBookmark: true
     },
     ratingStars: 4.6,
-    Features: {entire: `Private room`, bedrooms: 3, adults: 4},
+    Features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
     Price: Object.assign({}, Options.Price, {value: 80}),
     InsideList: [`Wi-Fi`,
       `Washing machine`,
@@ -67,7 +67,7 @@ const Offers = [
       isBookmark: false
     },
     ratingStars: 4.4,
-    Features: {entire: `Apartment`, bedrooms: 3, adults: 4},
+    Features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
     Price: Object.assign({}, Options.Price, {value: 132}),
     InsideList: [`Wi-Fi`,
       `Washing machine`,
@@ -96,7 +96,7 @@ const Offers = [
       isBookmark: true
     },
     ratingStars: 5,
-    Features: {entire: `Apartment`, bedrooms: 3, adults: 4},
+    Features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
     Price: Object.assign({}, Options.Price, {value: 180}),
     InsideList: [`Wi-Fi`,
       `Washing machine`,
@@ -124,7 +124,7 @@ const Offers = [
       isBookmark: false
     },
     ratingStars: 4,
-    Features: {entire: `Private room`, bedrooms: 3, adults: 4},
+    Features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
     Price: Object.assign({}, Options.Price, {value: 120}),
     InsideList: [`Wi-Fi`,
       `Washing machine`,
@@ -152,7 +152,7 @@ const Offers = [
       isBookmark: true
     },
     ratingStars: 5,
-    Features: {entire: `Apartment`, bedrooms: 3, adults: 4},
+    Features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
     Price: Object.assign({}, Options.Price, {value: 180}),
     InsideList: [`Wi-Fi`,
       `Washing machine`,
