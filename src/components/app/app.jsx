@@ -3,7 +3,7 @@ import {Switch, Route, BrowserRouter} from "react-router-dom";
 import Main from "../main/main";
 import SignIn from "../sign-in/sign-in";
 import Favorites from "../favorites/favorites";
-import Room from "../room/room";
+import Offer from "../offer/offer";
 import {OffersListTypes} from "../../mocks/offers.proptypes";
 
 const App = (props) => {
@@ -22,7 +22,7 @@ const App = (props) => {
           <Favorites placesList={placesList.filter((place) => place.Properties.isBookmark)} />
         </Route>
         <Route exact path="/offer/:id">
-          <Room offer={placesList[0]} />
+          <Offer offer={placesList[0]} />
         </Route>
       </Switch>
     </BrowserRouter>

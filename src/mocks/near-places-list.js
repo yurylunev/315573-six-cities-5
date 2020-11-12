@@ -1,6 +1,6 @@
 import Options from "./options";
 
-const Relevant = [
+const NearPlacesList = [
   {
     id: 1,
     image: `img/room.jpg`,
@@ -39,4 +39,4 @@ const Relevant = [
   }
 ];
 
-export default Relevant;
+export default NearPlacesList;
