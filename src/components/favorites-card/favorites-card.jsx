@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import {OfferTypes} from "../../mocks/offers.proptypes";
 import PlaceCardInfo from "../place-card-info/place-card-info";
 
@@ -7,10 +8,10 @@ const FavoritesCard = (props) => {
 
   return <article className="favorites__card place-card">
     <div className="favorites__image-wrapper place-card__image-wrapper">
-      <a href="#">
+      <Link to="/offer/1">
         <img className="place-card__image" src={Images[0]} width="150" height="110"
           alt="Place image" />
-      </a>
+      </Link>
     </div>
     <PlaceCardInfo
       price={Price} isBookmark={Properties.isBookmark}

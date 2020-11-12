@@ -26,7 +26,7 @@ PlaceCardInfo.propTypes = {
   ratingStars: PropTypes.number.isRequired,
   cardName: PropTypes.string.isRequired,
   cardType: PropTypes.string.isRequired,
-  isFavoritesList: PropTypes.bool.isRequired
+  isFavoritesList: PropTypes.bool
 };
 
 export default PlaceCardInfo;

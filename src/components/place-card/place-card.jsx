@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {OfferTypes} from "../../mocks/offers.proptypes";
 import PlaceCardInfo from "../place-card-info/place-card-info";
@@ -14,12 +15,12 @@ const PlaceCard = (props) => {
         </div>
         : null}
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to="/offer/2">
           <img className="place-card__image" src={Images[0]}
             width="260"
             height="200"
             alt="Place image"/>
-        </a>
+        </Link>
       </div>
       <PlaceCardInfo
         price={Price} isBookmark={Properties.isBookmark}
