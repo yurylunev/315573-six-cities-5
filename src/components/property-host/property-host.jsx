@@ -1,5 +1,5 @@
 import React from 'react';
-import {DescriptionType, HostType} from "../../mocks/offers.proptypes";
+import {descriptionType, hostType} from "../../mocks/offers.proptypes";
 
 const PropertyHost = (props) => (
   <div className="property__host">
@@ -10,7 +10,7 @@ const PropertyHost = (props) => (
           ? `property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper`
           : `property__avatar-wrapper property__avatar-wrapper user__avatar-wrapper`}>
         <img className="property__avatar user__avatar" src={props.host.avatar}
-          width="74" height="74" alt="Host avatar"/>
+          width="74" height="74" alt="host avatar"/>
       </div>
       <span className="property__user-name">{props.host.userName}</span>
     </div>
@@ -22,8 +22,8 @@ const PropertyHost = (props) => (
 );
 
 PropertyHost.propTypes = {
-  host: HostType,
-  description: DescriptionType
+  host: hostType,
+  description: descriptionType
 };
 
 export default PropertyHost;

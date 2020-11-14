@@ -4,7 +4,7 @@ import PlaceCardPrice from "../place-card-price/place-card-price";
 import PlaceCardName from "../place-card-name/place-card-name";
 import PlaceCardBookmark from "../place-card-bookmark/place-card-bookmark";
 import PlaceCardRating from "../place-card-rating/place-card-rating";
-import {PriceType} from "../../mocks/offers.proptypes";
+import {priceType} from "../../mocks/offers.proptypes";
 
 const PlaceCardInfo = (props) => {
   const {price, isBookmark, ratingStars, cardName, cardType, isFavoritesList} = props;
@@ -21,7 +21,7 @@ const PlaceCardInfo = (props) => {
 };
 
 PlaceCardInfo.propTypes = {
-  price: PriceType.isRequired,
+  price: priceType.isRequired,
   isBookmark: PropTypes.bool.isRequired,
   ratingStars: PropTypes.number.isRequired,
   cardName: PropTypes.string.isRequired,

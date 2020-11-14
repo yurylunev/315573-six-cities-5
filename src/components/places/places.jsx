@@ -1,6 +1,6 @@
 import React from "react";
 import PlaceCard from "../place-card/place-card";
-import {OffersListTypes} from "../../mocks/offers.proptypes";
+import {offersListTypes} from "../../mocks/offers.proptypes";
 
 class Places extends React.PureComponent {
   constructor(props) {
@@ -25,6 +25,6 @@ class Places extends React.PureComponent {
   }
 }
 
-Places.propTypes = OffersListTypes;
+Places.propTypes = offersListTypes;
 
 export default Places;

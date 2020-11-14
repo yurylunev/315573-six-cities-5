@@ -1,5 +1,5 @@
 import React from 'react';
-import {PriceType} from "../../mocks/offers.proptypes";
+import {priceType} from "../../mocks/offers.proptypes";
 
 const PropertyPrice = (props) => (
   <div className="property__price">
@@ -9,7 +9,7 @@ const PropertyPrice = (props) => (
 );
 
 PropertyPrice.propTypes = {
-  price: PriceType
+  price: priceType
 };
 
 export default PropertyPrice;

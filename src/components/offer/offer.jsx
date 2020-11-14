@@ -1,7 +1,7 @@
 import React from "react";
-import {OfferTypes} from "../../mocks/offers.proptypes";
+import {offerTypes} from "../../mocks/offers.proptypes";
 import Reviews from "../../mocks/reviews";
-import NearPlacesList from "../../mocks/near-places-list";
+import nearPlacesList from "../../mocks/near-places-list";
 import PropertyGallery from "../property-gallery/property-gallery";
 import PropertyMark from "../property-mark/property-mark";
 import PropertyName from "../property-name/property-name";
@@ -13,7 +13,6 @@ import PropertyHost from "../property-host/property-host";
 import PropertyReviews from "../property-reviews/property-reviews";
 import PropertyMap from "../property-map/property-map";
 import NearPlaces from "../near-places/near-places";
-
 
 const Offer = (props) => {
   const {offer} = props;
@@ -47,30 +46,30 @@ const Offer = (props) => {
       <main className="page__main page__main--property">
         <section className="property">
           <div className="property__gallery-container container">
-            <PropertyGallery images={offer.Images}/>
+            <PropertyGallery images={offer.images}/>
           </div>
           <div className="property__container container">
             <div className="property__wrapper">
-              {(offer.Properties.mark !== undefined) ? <PropertyMark /> : null}
-              <PropertyName name={offer.Properties.name}/>
+              {(offer.properties.mark !== undefined) ? <PropertyMark /> : null}
+              <PropertyName name={offer.properties.name}/>
               <PropertyStars stars={offer.ratingStars}/>
-              <PropertyFeatures features={offer.Features}/>
-              <PropertyPrice price={offer.Price}/>
-              <PropertyInside insideList={offer.InsideList}/>
-              <PropertyHost host={offer.Host} description={offer.Description}/>
+              <PropertyFeatures features={offer.features}/>
+              <PropertyPrice price={offer.price}/>
+              <PropertyInside insideList={offer.insideList}/>
+              <PropertyHost host={offer.host} description={offer.description}/>
               <PropertyReviews reviews={Reviews}/>
             </div>
           </div>
           <PropertyMap/>
         </section>
-        <NearPlaces placesList={NearPlacesList}/>
+        <NearPlaces placesList={nearPlacesList}/>
       </main>
     </div>
   );
 };
 
 Offer.propTypes = {
-  offer: OfferTypes
+  offer: offerTypes
 };
 
 export default Offer;

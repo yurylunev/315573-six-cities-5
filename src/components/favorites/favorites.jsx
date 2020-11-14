@@ -1,5 +1,5 @@
 import React from 'react';
-import {OffersListTypes} from "../../mocks/offers.proptypes";
+import {offersListTypes} from "../../mocks/offers.proptypes";
 import FavoritesEmpty from "../favorites-empty/favorites-empty";
 import FavoritesLocations from "../favorites-location/favorites-location";
 
@@ -56,6 +56,6 @@ const Favorites = (props) => {
   );
 };
 
-Favorites.propTypes = OffersListTypes;
+Favorites.propTypes = offersListTypes;
 
 export default Favorites;

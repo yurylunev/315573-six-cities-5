@@ -1,5 +1,5 @@
 import React from "react";
-import {OffersListTypes} from "../../mocks/offers.proptypes";
+import {offersListTypes} from "../../mocks/offers.proptypes";
 import Places from "../places/places";
 
 const Main = (props) => {
@@ -106,6 +106,6 @@ const Main = (props) => {
   );
 };
 
-Main.propTypes = OffersListTypes;
+Main.propTypes = offersListTypes;
 
 export default Main;

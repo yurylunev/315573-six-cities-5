@@ -18,7 +18,7 @@ const NearPlaces = (props) => (
                 </Link>
               </div>
               <PlaceCardInfo
-                price={placeCard.Price} isBookmark={placeCard.isBookmark}
+                price={placeCard.price} isBookmark={placeCard.isBookmark}
                 ratingStars={placeCard.ratingStars} cardName={placeCard.cardName}
                 cardType={placeCard.entire} isFavoritesList={false}/>
             </article>

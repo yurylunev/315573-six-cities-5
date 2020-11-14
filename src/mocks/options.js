@@ -1,8 +1,8 @@
-const Options = {
-  Price: {
+const options = {
+  price: {
     currency: `€`,
     period: `night`
   }
 };
 
-export default Options;
+export default options;

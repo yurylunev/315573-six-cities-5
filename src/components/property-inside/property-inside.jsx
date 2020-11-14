@@ -1,5 +1,5 @@
 import React from "react";
-import {InsideListType} from "../../mocks/offers.proptypes";
+import {insideListType} from "../../mocks/offers.proptypes";
 
 const PropertyInside = (props) => (
   <div className="property__inside">
@@ -15,7 +15,7 @@ const PropertyInside = (props) => (
 );
 
 PropertyInside.propTypes = {
-  insideList: InsideListType
+  insideList: insideListType
 };
 
 export default PropertyInside;

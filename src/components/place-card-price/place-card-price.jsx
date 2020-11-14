@@ -1,5 +1,5 @@
 import React from "react";
-import {PriceType} from "../../mocks/offers.proptypes";
+import {priceType} from "../../mocks/offers.proptypes";
 
 const PlaceCardPrice = (props) =>
   (<div className="place-card__price">
@@ -8,7 +8,7 @@ const PlaceCardPrice = (props) =>
   </div>);
 
 PlaceCardPrice.propTypes = {
-  price: PriceType
+  price: priceType
 };
 
 export default PlaceCardPrice;

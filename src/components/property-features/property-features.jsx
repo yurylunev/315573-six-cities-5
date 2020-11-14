@@ -1,5 +1,5 @@
 import React from "react";
-import {FeaturesType} from "../../mocks/offers.proptypes";
+import {featuresType} from "../../mocks/offers.proptypes";
 
 const PropertyFeatures = (props) => (
   <ul className="property__features">{
@@ -11,7 +11,7 @@ const PropertyFeatures = (props) => (
 );
 
 PropertyFeatures.propTypes = {
-  features: FeaturesType
+  features: featuresType
 };
 
 export default PropertyFeatures;
