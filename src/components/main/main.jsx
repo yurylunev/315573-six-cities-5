@@ -1,17 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
-import PlaceCard from "../place-card/place-card";
-
-const PlacesCards = (props) => {
-  const {cards} = props;
-
-  return (
-    cards.map((card, i)=><PlaceCard key={i} dataPlaceCard={card}/>)
-  );
-};
+import {OffersListTypes} from "../../mocks/offers.proptypes";
+import Places from "../places/places";
 
 const Main = (props) => {
-  const {placesList} = props;
+  const currentCity = props.placesList[0].city;
+  const placesList = props.placesList.filter((place) => place.city === currentCity);
 
   return (
     <>
@@ -82,7 +75,7 @@ const Main = (props) => {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">312 places to stay in Amsterdam</b>
+                <b className="places__found">{placesList.length} places to stay in {currentCity}</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex="0">
@@ -99,7 +92,7 @@ const Main = (props) => {
                   </ul>
                 </form>
                 <div className="cities__places-list places__list tabs__content">
-                  <PlacesCards cards={placesList}/>
+                  <Places placesList={placesList}/>
                 </div>
               </section>
               <div className="cities__right-section">
@@ -113,30 +106,6 @@ const Main = (props) => {
   );
 };
 
-PlacesCards.propTypes = {
-  cards: PropTypes.arrayOf(PropTypes.shape({
-    mark: PropTypes.string,
-    image: PropTypes.string.isRequired,
-    currency: PropTypes.string,
-    price: PropTypes.number.isRequired,
-    isBookmark: PropTypes.bool.isRequired,
-    rating: PropTypes.number,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired
-  }))
-};
-
-Main.propTypes = {
-  placesList: PropTypes.arrayOf(PropTypes.shape({
-    mark: PropTypes.string,
-    image: PropTypes.string.isRequired,
-    currency: PropTypes.string,
-    price: PropTypes.number.isRequired,
-    isBookmark: PropTypes.bool.isRequired,
-    rating: PropTypes.number,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired
-  }))
-};
+Main.propTypes = OffersListTypes;
 
 export default Main;

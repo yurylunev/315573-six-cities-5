@@ -1,10 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
 import Main from "../main/main";
 import SignIn from "../sign-in/sign-in";
 import Favorites from "../favorites/favorites";
-import Room from "../room/room";
+import Offer from "../offer/offer";
+import {OffersListTypes} from "../../mocks/offers.proptypes";
 
 const App = (props) => {
   const {placesList} = props;
@@ -13,23 +13,22 @@ const App = (props) => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main placesList={placesList}/>
+          <Main placesList={placesList} />
         </Route>
         <Route exact path="/login">
           <SignIn/>
         </Route>
         <Route exact path="/favorites">
-          <Favorites/>
+          <Favorites placesList={placesList.filter((place) => place.Properties.isBookmark)} />
         </Route>
-        <Route path="/offer/:id" exact component={Room}>
+        <Route exact path="/offer/:id">
+          <Offer offer={placesList[0]} />
         </Route>
       </Switch>
     </BrowserRouter>
   );
 };
 
-App.propTypes = {
-  placesList: PropTypes.array.isRequired
-};
+App.propTypes = OffersListTypes;
 
 export default App;
