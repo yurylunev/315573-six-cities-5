@@ -1,18 +1,11 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import {offerTypes} from "../../mocks/offers.proptypes";
 import Reviews from "../../mocks/reviews";
 import nearPlacesList from "../../mocks/near-places-list";
-import PropertyGallery from "../property-gallery/property-gallery";
-import PropertyMark from "../property-mark/property-mark";
-import PropertyName from "../property-name/property-name";
-import PropertyStars from "../property-stars/property-stars";
-import PropertyFeatures from "../property-features/property-features";
-import PropertyPrice from "../property-price/property-price";
-import PropertyInside from "../property-inside/property-inside";
-import PropertyHost from "../property-host/property-host";
 import PropertyReviews from "../property-reviews/property-reviews";
 import PropertyMap from "../property-map/property-map";
-import NearPlaces from "../near-places/near-places";
+import PlaceCardInfo from "../place-card-info/place-card-info";
 
 const Offer = (props) => {
   const {offer} = props;
@@ -46,23 +39,105 @@ const Offer = (props) => {
       <main className="page__main page__main--property">
         <section className="property">
           <div className="property__gallery-container container">
-            <PropertyGallery images={offer.images}/>
+            <div className="property__gallery">
+              {
+                offer.images.map((img, i)=>{
+                  return <div key={i} className="property__image-wrapper">
+                    <img className="property__image" src={`/${img}`} alt="Photo studio"/>
+                  </div>;
+                })
+              }
+            </div>
           </div>
           <div className="property__container container">
             <div className="property__wrapper">
-              {(offer.properties.mark !== undefined) ? <PropertyMark /> : null}
-              <PropertyName name={offer.properties.name}/>
-              <PropertyStars stars={offer.ratingStars}/>
-              <PropertyFeatures features={offer.features}/>
-              <PropertyPrice price={offer.price}/>
-              <PropertyInside insideList={offer.insideList}/>
-              <PropertyHost host={offer.host} description={offer.description}/>
+              {(offer.properties.mark !== undefined) &&
+              <div className="property__mark">
+                <span>Premium</span>
+              </div>}
+              <div className="property__name-wrapper">
+                <h1 className="property__name">
+                  {offer.properties.name}
+                </h1>
+                <button className="property__bookmark-button button" type="button">
+                  <svg className="property__bookmark-icon" width="31" height="33">
+                    <use xlinkHref="#icon-bookmark"/>
+                  </svg>
+                  <span className="visually-hidden">To bookmarks</span>
+                </button>
+              </div>
+              <div className="property__rating rating">
+                <div className="property__stars rating__stars">
+                  <span style={{width: `${Math.round(offer.ratingStars * 20)}%`}}/>
+                  <span className="visually-hidden">Rating</span>
+                </div>
+                <span className="property__rating-value rating__value">4.8</span>
+              </div>
+              <ul className="property__features">{
+                Object.keys(offer.features).map((featureName, i)=>(
+                  <li key={i} className={`property__feature property__feature--${featureName}`}>
+                    {offer.features[featureName]}
+                  </li>)) }
+              </ul>
+              <div className="property__price">
+                <b className="property__price-value">{offer.price.currency}{offer.price.value}</b>
+                <span className="property__price-text">&nbsp;{offer.price.period}</span>
+              </div>
+              <div className="property__inside">
+                <h2 className="property__inside-title">What&apos;s inside</h2>
+                <ul className="property__inside-list">
+                  {
+                    offer.insideList.map((inside, i)=>(
+                      <li key={i} className="property__inside-item">{inside}</li>
+                    ))
+                  }
+                </ul>
+              </div>
+              <div className="property__host">
+                <h2 className="property__host-title">Meet the host</h2>
+                <div className="property__host-user user">
+                  <div
+                    className={offer.host.isPro
+                      ? `property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper`
+                      : `property__avatar-wrapper property__avatar-wrapper user__avatar-wrapper`}>
+                    <img className="property__avatar user__avatar" src={offer.host.avatar}
+                      width="74" height="74" alt="host avatar"/>
+                  </div>
+                  <span className="property__user-name">{offer.host.userName}</span>
+                </div>
+                <div className="property__description">{
+                  offer.description.map((text, i)=>(<p key={i} className="property__text">{text}</p>))
+                }
+                </div>
+              </div>
               <PropertyReviews reviews={Reviews}/>
             </div>
           </div>
           <PropertyMap/>
         </section>
-        <NearPlaces placesList={nearPlacesList}/>
+        <div className="container">
+          <section className="near-places places">
+            <h2 className="near-places__title">Other places in the neighbourhood</h2>
+            <div className="near-places__list places__list">
+              {
+                nearPlacesList.map((placeCard, i)=>(
+                  <article key={i} className="near-places__card place-card">
+                    <div className="near-places__image-wrapper place-card__image-wrapper">
+                      <Link to="/offer/3">
+                        <img className="place-card__image" src={placeCard.image} width="260" height="200"
+                          alt="Place image"/>
+                      </Link>
+                    </div>
+                    <PlaceCardInfo
+                      price={placeCard.price} isBookmark={placeCard.isBookmark}
+                      ratingStars={placeCard.ratingStars} cardName={placeCard.cardName}
+                      cardType={placeCard.entire} isFavoritesList={false}/>
+                  </article>
+                ))
+              }
+            </div>
+          </section>
+        </div>
       </main>
     </div>
   );
