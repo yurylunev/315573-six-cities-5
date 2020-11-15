@@ -8,7 +8,7 @@ const PlaceCard = (props) => {
   const {properties, images, price, ratingStars, features, isFavoritesList} = props.card;
 
   return (
-    <article className="cities__place-card place-card" onMouseMove={props.moveHandler}>
+    <article className="cities__place-card place-card" onMouseMove={()=>props.moveHandler(props.card)}>
       {(properties.mark) ?
         <div className="place-card__mark">
           <span>{properties.mark}</span>
