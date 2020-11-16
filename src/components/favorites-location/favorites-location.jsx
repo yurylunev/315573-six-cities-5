@@ -1,7 +1,7 @@
 import React from "react";
-import FavoritesCard from "../favorites-card/favorites-card";
 import PropTypes from "prop-types";
 import {offerTypes} from "../../mocks/offers.proptypes";
+import PlaceCard from "../place-card/place-card";
 
 const FavoritesLocations = (props) => {
   const favoritesList = props.favoritesList;
@@ -15,9 +15,11 @@ const FavoritesLocations = (props) => {
       </div>
     </div>
     <div className="favorites__places">
-      {favoritesList.map((card, i)=>{
-        return <FavoritesCard key={i} card={card}/>;
-      })}
+      {favoritesList.map((card, i)=>
+        <PlaceCard type={`favorites__card`} key={i}
+          card={card}
+          moveHandler={()=>null} />
+      )}
     </div>
   </li>;
 };

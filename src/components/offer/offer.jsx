@@ -1,11 +1,10 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import {offerTypes} from "../../mocks/offers.proptypes";
 import Reviews from "../../mocks/reviews";
 import nearPlacesList from "../../mocks/near-places-list";
 import PropertyReviews from "../property-reviews/property-reviews";
-import PlaceCardInfo from "../place-card-info/place-card-info";
 import Map from "../map/map";
+import PlaceCard from "../place-card/place-card";
 
 const Offer = (props) => {
   const {offer} = props;
@@ -123,18 +122,9 @@ const Offer = (props) => {
             <div className="near-places__list places__list">
               {
                 nearPlacesList.map((placeCard, i)=>(
-                  <article key={i} className="near-places__card place-card">
-                    <div className="near-places__image-wrapper place-card__image-wrapper">
-                      <Link to="/offer/3">
-                        <img className="place-card__image" src={placeCard.image} width="260" height="200"
-                          alt="Place image"/>
-                      </Link>
-                    </div>
-                    <PlaceCardInfo
-                      price={placeCard.price} isBookmark={placeCard.isBookmark}
-                      ratingStars={placeCard.ratingStars} cardName={placeCard.cardName}
-                      cardType={placeCard.entire} isFavoritesList={false}/>
-                  </article>
+                  <PlaceCard type={`near-places__card`} key={i}
+                    card={placeCard}
+                    moveHandler={()=>null} />
                 ))
               }
             </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import {offersListTypes} from "../../mocks/offers.proptypes";
-import Places from "../places/places";
+import PlacesList from "../places-list/places-list";
 import Map from "../map/map";
 
 const Main = (props) => {
@@ -92,9 +92,7 @@ const Main = (props) => {
                     <li className="places__option" tabIndex="0">Top rated first</li>
                   </ul>
                 </form>
-                <div className="cities__places-list places__list tabs__content">
-                  <Places placesList={placesList}/>
-                </div>
+                <PlacesList type={`cities__place-card`} placesList={placesList}/>
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map">
