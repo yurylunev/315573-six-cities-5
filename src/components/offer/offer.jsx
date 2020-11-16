@@ -4,8 +4,8 @@ import {offerTypes} from "../../mocks/offers.proptypes";
 import Reviews from "../../mocks/reviews";
 import nearPlacesList from "../../mocks/near-places-list";
 import PropertyReviews from "../property-reviews/property-reviews";
-import PropertyMap from "../property-map/property-map";
 import PlaceCardInfo from "../place-card-info/place-card-info";
+import Map from "../map/map";
 
 const Offer = (props) => {
   const {offer} = props;
@@ -113,7 +113,9 @@ const Offer = (props) => {
               <PropertyReviews reviews={Reviews}/>
             </div>
           </div>
-          <PropertyMap/>
+          <section className="property__map map">
+            <Map placesList={nearPlacesList}/>
+          </section>
         </section>
         <div className="container">
           <section className="near-places places">

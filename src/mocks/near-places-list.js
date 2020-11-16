@@ -10,7 +10,7 @@ const nearPlacesList = [
     ratingStars: 4.5,
     entire: `Private room`,
     price: Object.assign(options.price, {value: 80}),
-    gps: [52.38333, 4.9],
+    gps: [52.3909553943508, 4.85309666406198],
     offerId: 1
   },
   {
@@ -22,7 +22,7 @@ const nearPlacesList = [
     ratingStars: 4.6,
     entire: `Apartment`,
     price: Object.assign(options.price, {value: 132}),
-    gps: [52.38333, 4.9],
+    gps: [52.369553943508, 4.85309666406198],
     offerId: 1
   },
   {
@@ -34,7 +34,7 @@ const nearPlacesList = [
     ratingStars: 5,
     entire: `Apartment`,
     price: Object.assign(options.price, {value: 180}),
-    gps: [52.38333, 4.9],
+    gps: [52.3909553943508, 4.929309666406198],
     offerId: 1
   }
 ];
