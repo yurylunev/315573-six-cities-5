@@ -1,7 +1,7 @@
 import React from "react";
 import {offersListTypes} from "../../mocks/offers.proptypes";
 import Places from "../places/places";
-import CitiesMap from "../cities-map/cities-map";
+import Map from "../map/map";
 
 const Main = (props) => {
   const currentCity = props.placesList[0].city;
@@ -97,8 +97,10 @@ const Main = (props) => {
                 </div>
               </section>
               <div className="cities__right-section">
-                <CitiesMap placesList={placesList
+                <section className="cities__map map">
+                  <Map placesList={placesList
                     .map((place)=>Object.assign({}, {offerId: place.offerId, gps: place.gps}))}/>
+                </section>;
               </div>
             </div>
           </div>
