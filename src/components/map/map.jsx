@@ -3,11 +3,10 @@ import PropTypes from "prop-types";
 import leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-class CitiesMap extends React.PureComponent {
+class Map extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      currentView: props.currentView,
       offers: props.placesList
     };
   }
@@ -46,15 +45,12 @@ class CitiesMap extends React.PureComponent {
   }
 
   render() {
-    return <section className="cities__map map">
-      <div id="map" style={{height: `100%`}}/>
-    </section>;
+    return <div id="map" style={{height: `100%`}}/>;
   }
 }
 
-CitiesMap.propTypes = {
-  currentView: PropTypes.array.isRequired,
+Map.propTypes = {
   placesList: PropTypes.array
 };
 
-export default CitiesMap;
+export default Map;
