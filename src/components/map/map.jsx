@@ -6,9 +6,6 @@ import "leaflet/dist/leaflet.css";
 class Map extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      offers: props.placesList
-    };
   }
 
   componentDidMount() {
@@ -34,9 +31,8 @@ class Map extends React.PureComponent {
     leaflet
         .marker(offerCords, {icon})
         .addTo(map);
-
-    if (this.state.offers) {
-      this.state.offers.forEach((offer) => {
+    if (this.props.placesList) {
+      this.props.placesList.forEach((offer) => {
         leaflet
             .marker(offer.gps, {icon})
             .addTo(map);
