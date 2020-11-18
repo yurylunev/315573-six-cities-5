@@ -1,7 +1,7 @@
 import React from "react";
 import FavoritesCard from "../favorites-card/favorites-card";
 import PropTypes from "prop-types";
-import {OfferTypes} from "../../mocks/offers.proptypes";
+import {offerTypes} from "../../mocks/offers.proptypes";
 
 const FavoritesLocations = (props) => {
   const favoritesList = props.favoritesList;
@@ -23,7 +23,7 @@ const FavoritesLocations = (props) => {
 };
 
 FavoritesLocations.propTypes = {
-  favoritesList: PropTypes.arrayOf(OfferTypes).isRequired
+  favoritesList: PropTypes.arrayOf(offerTypes).isRequired
 };
 
 export default FavoritesLocations;

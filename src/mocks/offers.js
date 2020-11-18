@@ -1,19 +1,19 @@
-import Options from "./options";
+import options from "./options";
 
-const Offers = [
+const offers = [
   {
     offerId: 1,
     city: `Amsterdam`,
-    Images: [`img/apartment-01.jpg`, `img/room.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
-    Properties: {
+    images: [`img/apartment-01.jpg`, `img/room.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
+    properties: {
       mark: `Premium`,
       name: `Beautiful & luxurious studio at great location`,
       isBookmark: false
     },
     ratingStars: 4.8,
-    Features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
-    Price: Object.assign({}, Options.Price, {value: 120}),
-    InsideList: [`Wi-Fi`,
+    features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
+    price: Object.assign({}, options.price, {value: 120}),
+    insideList: [`Wi-Fi`,
       `Washing machine`,
       `Towels`,
       `Heating`,
@@ -23,25 +23,25 @@ const Offers = [
       `Dishwasher`,
       `Cable TV`,
       `Fridge`],
-    Host: {avatar: `img/avatar-angelina.jpg`, isPro: true, userName: `Angelina`},
-    Description: [
+    host: {avatar: `img/avatar-angelina.jpg`, isPro: true, userName: `Angelina`},
+    description: [
       `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
       `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
     ],
-    Gps: [52.38333, 4.9],
+    gps: [52.3909553943508, 4.85309666406198],
   },
   {
     offerId: 2,
     city: `Amsterdam`,
-    Images: [`img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
-    Properties: {
+    images: [`img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
+    properties: {
       name: `Wood and stone place`,
       isBookmark: true
     },
     ratingStars: 4.6,
-    Features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
-    Price: Object.assign({}, Options.Price, {value: 80}),
-    InsideList: [`Wi-Fi`,
+    features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
+    price: Object.assign({}, options.price, {value: 80}),
+    insideList: [`Wi-Fi`,
       `Washing machine`,
       `Towels`,
       `Heating`,
@@ -51,25 +51,25 @@ const Offers = [
       `Dishwasher`,
       `Cable TV`,
       `Fridge`],
-    Host: {avatar: `img/avatar-angelina.jpg`, isPro: true, userName: `Angelina`},
-    Description: [
+    host: {avatar: `img/avatar-angelina.jpg`, isPro: true, userName: `Angelina`},
+    description: [
       `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
       `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
     ],
-    Gps: [52.38333, 4.9],
+    gps: [52.369553943508, 4.85309666406198],
   },
   {
     offerId: 3,
     city: `Amsterdam`,
-    Images: [`img/apartment-02.jpg`, `img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
-    Properties: {
+    images: [`img/apartment-02.jpg`, `img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
+    properties: {
       name: `Canal View Prinsengracht`,
       isBookmark: false
     },
     ratingStars: 4.4,
-    Features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
-    Price: Object.assign({}, Options.Price, {value: 132}),
-    InsideList: [`Wi-Fi`,
+    features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
+    price: Object.assign({}, options.price, {value: 132}),
+    insideList: [`Wi-Fi`,
       `Washing machine`,
       `Towels`,
       `Heating`,
@@ -79,26 +79,26 @@ const Offers = [
       `Dishwasher`,
       `Cable TV`,
       `Fridge`],
-    Host: {avatar: `img/avatar-angelina.jpg`, isPro: true, userName: `Angelina`},
-    Description: [
+    host: {avatar: `img/avatar-angelina.jpg`, isPro: true, userName: `Angelina`},
+    description: [
       `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
       `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
     ],
-    Gps: [52.38333, 4.9],
+    gps: [52.3909553943508, 4.929309666406198],
   },
   {
     offerId: 4,
     city: `Amsterdam`,
-    Images: [`img/apartment-03.jpg`, `img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
-    Properties: {
+    images: [`img/apartment-03.jpg`, `img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
+    properties: {
       mark: `Premium`,
       name: `Nice, cozy, warm big bed apartment`,
       isBookmark: true
     },
     ratingStars: 5,
-    Features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
-    Price: Object.assign({}, Options.Price, {value: 180}),
-    InsideList: [`Wi-Fi`,
+    features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
+    price: Object.assign({}, options.price, {value: 180}),
+    insideList: [`Wi-Fi`,
       `Washing machine`,
       `Towels`,
       `Heating`,
@@ -108,25 +108,25 @@ const Offers = [
       `Dishwasher`,
       `Cable TV`,
       `Fridge`],
-    Host: {avatar: `img/avatar-angelina.jpg`, isPro: true, userName: `Angelina`},
-    Description: [
+    host: {avatar: `img/avatar-angelina.jpg`, isPro: true, userName: `Angelina`},
+    description: [
       `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
       `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
     ],
-    Gps: [52.38333, 4.9],
+    gps: [52.3809553943508, 4.939309666406198],
   },
   {
     offerId: 5,
     city: `Amsterdam`,
-    Images: [`img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
-    Properties: {
+    images: [`img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
+    properties: {
       name: `Wood and stone place`,
       isBookmark: false
     },
     ratingStars: 4,
-    Features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
-    Price: Object.assign({}, Options.Price, {value: 120}),
-    InsideList: [`Wi-Fi`,
+    features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
+    price: Object.assign({}, options.price, {value: 120}),
+    insideList: [`Wi-Fi`,
       `Washing machine`,
       `Towels`,
       `Heating`,
@@ -136,25 +136,25 @@ const Offers = [
       `Dishwasher`,
       `Cable TV`,
       `Fridge`],
-    Host: {avatar: `img/avatar-angelina.jpg`, isPro: true, userName: `Angelina`},
-    Description: [
+    host: {avatar: `img/avatar-angelina.jpg`, isPro: true, userName: `Angelina`},
+    description: [
       `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
       `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
     ],
-    Gps: [52.38333, 4.9],
+    gps: [52.3809553943508, 4.939309666406198],
   },
   {
     offerId: 6,
     city: `Cologne`,
-    Images: [`img/apartment-small-04.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
-    Properties: {
+    images: [`img/apartment-small-04.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
+    properties: {
       name: `White castle`,
       isBookmark: true
     },
     ratingStars: 5,
-    Features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
-    Price: Object.assign({}, Options.Price, {value: 180}),
-    InsideList: [`Wi-Fi`,
+    features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
+    price: Object.assign({}, options.price, {value: 180}),
+    insideList: [`Wi-Fi`,
       `Washing machine`,
       `Towels`,
       `Heating`,
@@ -164,13 +164,13 @@ const Offers = [
       `Dishwasher`,
       `Cable TV`,
       `Fridge`],
-    Host: {avatar: `img/avatar-angelina.jpg`, isPro: true, userName: `Angelina`},
-    Description: [
+    host: {avatar: `img/avatar-angelina.jpg`, isPro: true, userName: `Angelina`},
+    description: [
       `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
       `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
     ],
-    Gps: [52.38333, 4.9],
+    gps: [52.38333, 4.9],
   }
 ];
 
-export default Offers;
+export default offers;

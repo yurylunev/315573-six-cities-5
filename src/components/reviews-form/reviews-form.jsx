@@ -7,8 +7,8 @@ class ReviewsForm extends React.PureComponent {
       id: 1,
       reviewTime: (new Date()),
       ratingStars: 0,
-      User: {
-        name: `User`,
+      user: {
+        name: `user`,
         avatar: `img/avatar.svg`
       },
       reviewText: ``,
@@ -19,8 +19,8 @@ class ReviewsForm extends React.PureComponent {
   }
   _handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target.value);
   }
+
   _handleFormChange(e) {
     e.preventDefault();
     switch (e.target.name) {

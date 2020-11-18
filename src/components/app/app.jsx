@@ -4,7 +4,7 @@ import Main from "../main/main";
 import SignIn from "../sign-in/sign-in";
 import Favorites from "../favorites/favorites";
 import Offer from "../offer/offer";
-import {OffersListTypes} from "../../mocks/offers.proptypes";
+import {offersListTypes} from "../../mocks/offers.proptypes";
 
 const App = (props) => {
   const {placesList} = props;
@@ -19,7 +19,7 @@ const App = (props) => {
           <SignIn/>
         </Route>
         <Route exact path="/favorites">
-          <Favorites placesList={placesList.filter((place) => place.Properties.isBookmark)} />
+          <Favorites placesList={placesList.filter((place) => place.properties.isBookmark)} />
         </Route>
         <Route exact path="/offer/:id">
           <Offer offer={placesList[0]} />
@@ -29,6 +29,6 @@ const App = (props) => {
   );
 };
 
-App.propTypes = OffersListTypes;
+App.propTypes = offersListTypes;
 
 export default App;

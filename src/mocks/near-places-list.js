@@ -1,6 +1,6 @@
-import Options from "./options";
+import options from "./options";
 
-const NearPlacesList = [
+const nearPlacesList = [
   {
     id: 1,
     image: `img/room.jpg`,
@@ -9,8 +9,8 @@ const NearPlacesList = [
     isBookmark: true,
     ratingStars: 4.5,
     entire: `Private room`,
-    Price: Object.assign(Options.Price, {value: 80}),
-    Gps: [52.38333, 4.9],
+    price: Object.assign(options.price, {value: 80}),
+    gps: [52.38333, 4.9],
     offerId: 1
   },
   {
@@ -21,8 +21,8 @@ const NearPlacesList = [
     isBookmark: false,
     ratingStars: 4.6,
     entire: `Apartment`,
-    Price: Object.assign(Options.Price, {value: 132}),
-    Gps: [52.38333, 4.9],
+    price: Object.assign(options.price, {value: 132}),
+    gps: [52.38333, 4.9],
     offerId: 1
   },
   {
@@ -33,10 +33,10 @@ const NearPlacesList = [
     isBookmark: false,
     ratingStars: 5,
     entire: `Apartment`,
-    Price: Object.assign(Options.Price, {value: 180}),
-    Gps: [52.38333, 4.9],
+    price: Object.assign(options.price, {value: 180}),
+    gps: [52.38333, 4.9],
     offerId: 1
   }
 ];
 
-export default NearPlacesList;
+export default nearPlacesList;

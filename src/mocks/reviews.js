@@ -3,7 +3,7 @@ const Reviews = [
     id: 1,
     reviewTime: `2019-04-24`,
     ratingStars: 4.1,
-    User: {
+    user: {
       name: `Max`,
       avatar: `img/avatar-max.jpg`
     },
@@ -14,7 +14,7 @@ const Reviews = [
     id: 2,
     reviewTime: `2018-05-24`,
     ratingStars: 2.1,
-    User: {
+    user: {
       name: `Max`,
       avatar: `img/avatar-max.jpg`
     },
@@ -25,7 +25,7 @@ const Reviews = [
     id: 3,
     reviewTime: `2020-11-12`,
     ratingStars: 3.5,
-    User: {
+    user: {
       name: `Max`,
       avatar: `img/avatar-max.jpg`
     },
