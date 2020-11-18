@@ -19,7 +19,7 @@ class PlacesList extends React.PureComponent {
     return <div className={`cities__places-list places__list tabs__content`}>
       {this.props.placesList.map((place, i) => {
         return <PlaceCard
-          key={i}
+          key={place.offerId}
           card={place}
           moveHandler={this._moveHandler}
           type={type}

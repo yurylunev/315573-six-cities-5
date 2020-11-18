@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from "prop-types";
 import ReviewsForm from "../reviews-form/reviews-form";
 import ReviewsItem from "../reviews-item/reviews-item";
+import {reviewsTypes} from "../../mocks/reviews.proptypes";
 
 const PropertyReviews = (props) => (
   <section className="property__reviews reviews">
@@ -9,13 +9,8 @@ const PropertyReviews = (props) => (
       className="reviews__amount">{props.reviews.length}</span></h2>
     <ul className="reviews__list">
       {
-        props.reviews.map((review, i)=>(
-          <ReviewsItem key={i}
-            userAvatar={review.user.avatar}
-            userName={review.user.name}
-            ratingStars={review.ratingStars}
-            reviewText={review.reviewText}
-            reviewTime={review.reviewTime}/>
+        props.reviews.map((review)=>(
+          <ReviewsItem key={review.id} review={review}/>
         ))
       }
     </ul>
@@ -23,8 +18,6 @@ const PropertyReviews = (props) => (
   </section>
 );
 
-PropertyReviews.propTypes = {
-  reviews: PropTypes.array.isRequired
-};
+PropertyReviews.propTypes = reviewsTypes;
 
 export default PropertyReviews;
