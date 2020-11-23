@@ -1,4 +1,4 @@
-const Reviews = [
+const reviews = [
   {
     id: 1,
     reviewTime: `2019-04-24`,
@@ -34,4 +34,4 @@ const Reviews = [
   }
 ];
 
-export default Reviews;
+export default reviews;
