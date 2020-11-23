@@ -3,6 +3,7 @@ import options from "./options";
 const offers = [
   {
     offerId: 1,
+    cityId: 4,
     city: `Amsterdam`,
     images: [`img/apartment-01.jpg`, `img/room.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
     properties: {
@@ -32,6 +33,7 @@ const offers = [
   },
   {
     offerId: 2,
+    cityId: 4,
     city: `Amsterdam`,
     images: [`img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
     properties: {
@@ -60,6 +62,7 @@ const offers = [
   },
   {
     offerId: 3,
+    cityId: 4,
     city: `Amsterdam`,
     images: [`img/apartment-02.jpg`, `img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
     properties: {
@@ -88,6 +91,7 @@ const offers = [
   },
   {
     offerId: 4,
+    cityId: 4,
     city: `Amsterdam`,
     images: [`img/apartment-03.jpg`, `img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
     properties: {
@@ -117,6 +121,7 @@ const offers = [
   },
   {
     offerId: 5,
+    cityId: 4,
     city: `Amsterdam`,
     images: [`img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
     properties: {
@@ -145,6 +150,7 @@ const offers = [
   },
   {
     offerId: 6,
+    cityId: 2,
     city: `Cologne`,
     images: [`img/apartment-small-04.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
     properties: {

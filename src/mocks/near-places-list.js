@@ -4,6 +4,7 @@ const nearPlacesList = [
   {
     offerId: 1,
     city: `Amsterdam`,
+    cityId: 4,
     images: [`img/apartment-01.jpg`, `img/room.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
     properties: {
       mark: `Premium`,
@@ -33,6 +34,7 @@ const nearPlacesList = [
   {
     offerId: 2,
     city: `Amsterdam`,
+    cityId: 4,
     images: [`img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
     properties: {
       name: `Wood and stone place`,
@@ -61,6 +63,7 @@ const nearPlacesList = [
   {
     offerId: 3,
     city: `Amsterdam`,
+    cityId: 4,
     images: [`img/apartment-02.jpg`, `img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
     properties: {
       name: `Canal View Prinsengracht`,
