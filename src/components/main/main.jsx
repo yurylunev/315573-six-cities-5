@@ -1,11 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {offersListTypes} from "../../mocks/offers.proptypes";
 import PlacesList from "../places-list/places-list";
 import Map from "../map/map";
+import LocationsList from "../locations-list/locations-list";
+import {citiesTypes, cityTypes} from "../../mocks/cities.proptypes";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../store/action";
 
 const Main = (props) => {
-  const currentCity = props.placesList[0].city;
-  const placesList = props.placesList.filter((place) => place.city === currentCity);
+  const {currentCity, cities, offers, onCityChange} = props;
+  const placesList = offers.filter((place) => place.cityId === currentCity.cityId);
 
   return (
     <>
@@ -38,45 +43,14 @@ const Main = (props) => {
           <h1 className="visually-hidden">Cities</h1>
           <div className="tabs">
             <section className="locations container">
-              <ul className="locations__list tabs__list">
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Paris</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Cologne</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Brussels</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item tabs__item--active">
-                    <span>Amsterdam</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Hamburg</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Dusseldorf</span>
-                  </a>
-                </li>
-              </ul>
+              <LocationsList clickHandler={onCityChange} cities={cities} currentCity={currentCity}/>
             </section>
           </div>
           <div className="cities">
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{placesList.length} places to stay in {currentCity}</b>
+                <b className="places__found">{placesList.length} places to stay in {currentCity.cityName}</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex="0">
@@ -98,7 +72,7 @@ const Main = (props) => {
                 <section className="cities__map map">
                   <Map placesList={placesList
                     .map((place)=>Object.assign({}, {offerId: place.offerId, gps: place.gps}))}/>
-                </section>;
+                </section>
               </div>
             </div>
           </div>
@@ -108,6 +82,18 @@ const Main = (props) => {
   );
 };
 
-Main.propTypes = offersListTypes;
+Main.propTypes = {
+  offers: offersListTypes.placesList,
+  currentCity: cityTypes,
+  cities: citiesTypes,
+  onCityChange: PropTypes.func.isRequired
+};
 
-export default Main;
+const mapDispatchToProps = (dispatch) => ({
+  onCityChange: (city) => {
+    dispatch(ActionCreator.changeCity(city));
+  }
+});
+
+export {Main};
+export default connect(null, mapDispatchToProps)(Main);

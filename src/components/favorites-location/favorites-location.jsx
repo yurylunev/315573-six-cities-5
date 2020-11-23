@@ -15,8 +15,8 @@ const FavoritesLocations = (props) => {
       </div>
     </div>
     <div className="favorites__places">
-      {favoritesList.map((card, i)=>
-        <PlaceCard type={`favorites__card`} key={i}
+      {favoritesList.map((card)=>
+        <PlaceCard type={`favorites__card`} key={card.offerId}
           card={card}
           moveHandler={()=>null} />
       )}

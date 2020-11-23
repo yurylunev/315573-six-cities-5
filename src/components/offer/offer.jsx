@@ -1,6 +1,6 @@
 import React from "react";
 import {offerTypes} from "../../mocks/offers.proptypes";
-import Reviews from "../../mocks/reviews";
+import reviews from "../../mocks/reviews";
 import nearPlacesList from "../../mocks/near-places-list";
 import PropertyReviews from "../property-reviews/property-reviews";
 import Map from "../map/map";
@@ -109,7 +109,7 @@ const Offer = (props) => {
                 }
                 </div>
               </div>
-              <PropertyReviews reviews={Reviews}/>
+              <PropertyReviews reviews={reviews}/>
             </div>
           </div>
           <section className="property__map map">
@@ -121,8 +121,8 @@ const Offer = (props) => {
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
               {
-                nearPlacesList.map((placeCard, i)=>(
-                  <PlaceCard type={`near-places__card`} key={i}
+                nearPlacesList.map((placeCard)=>(
+                  <PlaceCard type={`near-places__card`} key={placeCard.offerId}
                     card={placeCard}
                     moveHandler={()=>null} />
                 ))

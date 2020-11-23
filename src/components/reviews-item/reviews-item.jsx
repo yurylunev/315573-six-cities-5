@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import {reviewTypes} from "../../mocks/reviews.proptypes";
 
 const ReviewsItem = (props) => {
-  const {userAvatar, userName, ratingStars, reviewText, reviewTime} = props;
+  const {userAvatar, userName, ratingStars, reviewText, reviewTime} = props.review;
   return <li className="reviews__item">
     <div className="reviews__user user">
       <div className="reviews__avatar-wrapper user__avatar-wrapper">
@@ -28,11 +28,7 @@ const ReviewsItem = (props) => {
 };
 
 ReviewsItem.propTypes = {
-  userAvatar: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
-  ratingStars: PropTypes.number.isRequired,
-  reviewText: PropTypes.string.isRequired,
-  reviewTime: PropTypes.string.isRequired,
+  review: reviewTypes
 };
 
 export default ReviewsItem;
