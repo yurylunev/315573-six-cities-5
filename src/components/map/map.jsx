@@ -46,7 +46,10 @@ class Map extends React.PureComponent {
 }
 
 Map.propTypes = {
-  placesList: PropTypes.array
+  placesList: PropTypes.arrayOf(PropTypes.shape({
+    gps: PropTypes.array.isRequired,
+    offerId: PropTypes.number.isRequired
+  })).isRequired
 };
 
 export default Map;
