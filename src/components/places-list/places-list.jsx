@@ -8,7 +8,7 @@ class PlacesList extends React.PureComponent {
     this.state = {
       activeCard: {}
     };
-    this._moveHandler = this._moveHandler.bind(this);
+    this._moveHandler = this.props.moveHandler.bind(this);
   }
   _moveHandler(place) {
     this.setState({activeCard: place});

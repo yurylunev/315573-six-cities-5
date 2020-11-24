@@ -4,16 +4,17 @@ import offers from "../mocks/offers";
 
 const initialState = {
   cities,
-  currentCity: cities[0],
-  offers
+  currentCity: cities[3],
+  offers,
+  activeCard: {}
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_CITY:
       return Object.assign({}, state, {currentCity: action.payload});
-    case ActionType.GET_CITY_OFFERS:
-      return Object.assign({}, state, {offers: action.payload});
+    case ActionType.SET_ACTIVE_CARD:
+      return Object.assign({}, state, {activeCard: action.payload});
   }
   return state;
 };
