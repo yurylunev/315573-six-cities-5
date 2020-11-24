@@ -7,9 +7,10 @@ import LocationsList from "../locations-list/locations-list";
 import {citiesTypes, cityTypes} from "../../mocks/cities.proptypes";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
+import PlacesSorting from "../places-sorting/places-sorting";
 
 const Main = (props) => {
-  const {currentCity, cities, offers, onCityChange} = props;
+  const {currentCity, cities, offers, onCityChange, changeActiveCard} = props;
   const placesList = offers.filter((place) => place.cityId === currentCity.cityId);
 
   return (
@@ -51,22 +52,8 @@ const Main = (props) => {
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
                 <b className="places__found">{placesList.length} places to stay in {currentCity.cityName}</b>
-                <form className="places__sorting" action="#" method="get">
-                  <span className="places__sorting-caption">Sort by</span>
-                  <span className="places__sorting-type" tabIndex="0">
-                  Popular
-                    <svg className="places__sorting-arrow" width="7" height="4">
-                      <use xlinkHref="#icon-arrow-select"/>
-                    </svg>
-                  </span>
-                  <ul className="places__options places__options--custom places__options--opened">
-                    <li className="places__option places__option--active" tabIndex="0">Popular</li>
-                    <li className="places__option" tabIndex="0">Price: low to high</li>
-                    <li className="places__option" tabIndex="0">Price: high to low</li>
-                    <li className="places__option" tabIndex="0">Top rated first</li>
-                  </ul>
-                </form>
-                <PlacesList type={`cities__place-card`} placesList={placesList}/>
+                <PlacesSorting/>
+                <PlacesList type={`cities__place-card`} placesList={placesList} moveHandler={changeActiveCard}/>
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map">
@@ -86,12 +73,16 @@ Main.propTypes = {
   offers: offersListTypes.placesList,
   currentCity: cityTypes,
   cities: citiesTypes,
-  onCityChange: PropTypes.func.isRequired
+  onCityChange: PropTypes.func.isRequired,
+  changeActiveCard: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({
   onCityChange: (city) => {
     dispatch(ActionCreator.changeCity(city));
+  },
+  changeActiveCard(activeCard) {
+    dispatch(ActionCreator.changeActiveCard(activeCard));
   }
 });
 

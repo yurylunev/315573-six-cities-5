@@ -10,7 +10,7 @@ const PlaceCard = (props) => {
     ? {width: 150, height: 110}
     : {width: 260, height: 200};
   return (
-    <article className={`${type} place-card`} onMouseMove={()=>props.moveHandler(props.card)}>
+    <article className={`${type} place-card`} onMouseEnter={()=>props.moveHandler(props.card)}>
       {(properties.mark) ?
         <div className="place-card__mark">
           <span>{properties.mark}</span>

@@ -12,6 +12,7 @@ const offers = [
       isBookmark: false
     },
     ratingStars: 4.8,
+    popularity: 10,
     features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
     price: Object.assign({}, options.price, {value: 120}),
     insideList: [`Wi-Fi`,
@@ -41,6 +42,7 @@ const offers = [
       isBookmark: true
     },
     ratingStars: 4.6,
+    popularity: 90,
     features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
     price: Object.assign({}, options.price, {value: 80}),
     insideList: [`Wi-Fi`,
@@ -70,6 +72,7 @@ const offers = [
       isBookmark: false
     },
     ratingStars: 4.4,
+    popularity: 80,
     features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
     price: Object.assign({}, options.price, {value: 132}),
     insideList: [`Wi-Fi`,
@@ -100,6 +103,7 @@ const offers = [
       isBookmark: true
     },
     ratingStars: 5,
+    popularity: 70,
     features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
     price: Object.assign({}, options.price, {value: 180}),
     insideList: [`Wi-Fi`,
@@ -129,6 +133,7 @@ const offers = [
       isBookmark: false
     },
     ratingStars: 4,
+    popularity: 60,
     features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
     price: Object.assign({}, options.price, {value: 120}),
     insideList: [`Wi-Fi`,
@@ -158,6 +163,7 @@ const offers = [
       isBookmark: true
     },
     ratingStars: 5,
+    popularity: 50,
     features: {entire: `Apartment`, bedrooms: `3 Bedrooms`, adults: `Max 4 adults`},
     price: Object.assign({}, options.price, {value: 180}),
     insideList: [`Wi-Fi`,

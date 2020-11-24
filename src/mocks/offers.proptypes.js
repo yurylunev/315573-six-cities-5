@@ -33,6 +33,7 @@ const offerTypes = PropTypes.shape({
   images: PropTypes.arrayOf(PropTypes.string).isRequired,
   properties: propertiesType.isRequired,
   ratingStars: PropTypes.number,
+  popularity: PropTypes.number,
   features: featuresType.isRequired,
   price: priceType.isRequired,
   insideList: insideListType.isRequired,
