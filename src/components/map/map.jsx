@@ -12,32 +12,22 @@ class Map extends React.PureComponent {
     this.markers = [];
   }
 
-  _createMarkers(offers) {
+  _addMarkers(offers) {
     const {activeCard} = this.props;
     const activeIcon = leaflet.icon({
       iconUrl: `img/pin-active.svg`,
       iconSize: [30, 30]
     });
-
     const defaultIcon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
     });
 
-    let icon = defaultIcon;
-
     offers.forEach((offer) => {
-
-      icon = offer.offerId === activeCard.offerId ? activeIcon : defaultIcon;
-
       this.markers.push(
-          leaflet.marker(offer.coordinates, {icon})
+          leaflet.marker(offer.gps, {icon: offer.offerId === activeCard.offerId ? activeIcon : defaultIcon})
       );
     });
-
-  }
-
-  _addMarkers() {
     this.markers.forEach((marker) => {
       marker.addTo(this.map);
     });
@@ -51,7 +41,6 @@ class Map extends React.PureComponent {
   }
 
   componentDidMount() {
-    console.log(111, this.props);
     const city = [52.38333, 4.9];
     const zoom = 12;
     this.map = leaflet.map(`map`, {
@@ -67,20 +56,17 @@ class Map extends React.PureComponent {
         })
         .addTo(this.map);
     if (this.props.activeCard.offerId !== undefined) {
-      this._createMarkers(this.props.placesList);
-      this._addMarkers();
+      this._addMarkers(this.props.placesList);
     }
   }
 
   componentDidUpdate() {
-    console.log(222, this.props);
     const center = [52.38333, 4.9];
     this.map.setView(center, 12);
 
     if (this.props.activeCard.offerId !== undefined) {
       this._removeMarkers();
-      this._createMarkers(this.props.placesList);
-      this._addMarkers();
+      this._addMarkers(this.props.placesList);
     }
 
   }
