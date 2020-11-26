@@ -80,7 +80,7 @@ Map.propTypes = {
     gps: PropTypes.array.isRequired,
     offerId: PropTypes.number.isRequired
   })).isRequired,
-  activeCard: offerTypes
+  activeCard: PropTypes.oneOfType([offerTypes, PropTypes.shape({})])
 };
 
 const mapStateToProps = (state) => ({
