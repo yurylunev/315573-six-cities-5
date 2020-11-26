@@ -7,9 +7,7 @@ const withSelectedId = (Wrapped, initialId = 0) =>
       this.state = {
         selectedId: initialId
       };
-
       this._handleChangeSelectedId = this._handleChangeSelectedId.bind(this);
-
     }
     _handleChangeSelectedId(callback, selectedId) {
       callback();
@@ -18,8 +16,8 @@ const withSelectedId = (Wrapped, initialId = 0) =>
 
     render() {
       return <Wrapped {...this.props}
-      selectedId={this.state.selectedId}
-      handleChangeSelectedId={this._handleChangeSelectedId} />;
+        selectedId={this.state.selectedId}
+        handleChangeSelectedId={this._handleChangeSelectedId} />;
     }
   };
 

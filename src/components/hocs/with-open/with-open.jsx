@@ -7,7 +7,6 @@ const withOpen = (Wrapped) =>
       this.state = {
         isOpen: false,
       };
-
       this._handleToggleOpen = this._handleToggleOpen.bind(this);
     }
 
@@ -17,7 +16,7 @@ const withOpen = (Wrapped) =>
     render() {
       return <Wrapped {...this.props}
         isOpen={this.state.isOpen}
-        handleToggleOpen={this._handleToggleOpen}/>
+        handleToggleOpen={this._handleToggleOpen}/>;
     }
   };
 
