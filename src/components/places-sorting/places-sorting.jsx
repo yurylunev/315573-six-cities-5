@@ -1,7 +1,9 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
+import withOpen from "../hocs/with-open/with-open";
+import withSelectedId from "../hocs/with-selected-id/with-selected-id";
 
 const sortingTypes = [
   {type: `popular`, sortText: `Popular`},
@@ -10,51 +12,30 @@ const sortingTypes = [
   {type: `top_rated`, sortText: `Top rated first`}
 ];
 
-class PlacesSorting extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpen: false,
-      currentSortingTypeID: 0,
-    };
-
-    this._handleSortingTypeClick = this._handleSortingTypeClick.bind(this);
-    this._handleListItemClick = this._handleListItemClick.bind(this);
-  }
-
-  _handleSortingTypeClick() {
-    this.setState(() => ({isOpen: !this.state.isOpen}));
-  }
-
-  _handleListItemClick(callback, currentSortingTypeID) {
-    callback();
-    this.setState(() => ({isOpen: false, currentSortingTypeID}));
-  }
-
-  render() {
-    return (
+const PlacesSorting = (props) => (
       <form className="places__sorting" action="#" method="get">
         <span className="places__sorting-caption">Sort by</span>
-        <span className="places__sorting-type" tabIndex="0" onClick={this._handleSortingTypeClick}>&nbsp;
-          {sortingTypes[this.state.currentSortingTypeID].sortText}
+        <span className="places__sorting-type" tabIndex="0" onClick={props.handleToggleOpen}>&nbsp;
+          {sortingTypes[props.selectedId].sortText}
           <svg className="places__sorting-arrow" width="7" height="4">
             <use xlinkHref="#icon-arrow-select"/>
           </svg>
         </span>
-        <ul className={`places__options places__options--custom${this.state.isOpen ? ` places__options--opened` : ``}`}>
+        <ul className={`places__options places__options--custom${props.isOpen ? ` places__options--opened` : ``}`}>
           {sortingTypes.map((type, i) => (
             <li className={`places__option${i === 0 ? ` places__option--active` : ``}`}
               tabIndex="0"
               key={type.type + type.sortText}
-              onClick={() => this._handleListItemClick(this.props.onSortingChange.bind(null, type.type), i)}>
+              onClick={() => {
+                props.handleChangeSelectedId(() => props.onSortingChange(type.type), i);
+                props.handleToggleOpen();
+                }}>
               {type.sortText}
             </li>
           ))}
         </ul>
       </form>
     );
-  }
-}
 
 const mapDispatchToProps = (dispatch) => ({
   onSortingChange: (sortingType) => {
@@ -67,4 +48,4 @@ PlacesSorting.propTypes = {
 };
 
 export {PlacesSorting};
-export default connect(null, mapDispatchToProps)(PlacesSorting);
+export default connect(null, mapDispatchToProps)(withSelectedId(withOpen(PlacesSorting)));
