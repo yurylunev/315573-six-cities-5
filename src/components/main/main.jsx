@@ -8,6 +8,7 @@ import {citiesTypes, cityTypes} from "../../mocks/cities.proptypes";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
 import PlacesSorting from "../places-sorting/places-sorting";
+import PlacesContainerEmpty from "../places-container-empty/places-container-empty";
 
 const Main = (props) => {
   const {currentCity, cities, offers, onCityChange, changeActiveCard} = props;
@@ -48,20 +49,22 @@ const Main = (props) => {
             </section>
           </div>
           <div className="cities">
-            <div className="cities__places-container container">
-              <section className="cities__places places">
-                <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{placesList.length} places to stay in {currentCity.cityName}</b>
-                <PlacesSorting/>
-                <PlacesList type={`cities__place-card`} placesList={placesList} moveHandler={changeActiveCard}/>
-              </section>
-              <div className="cities__right-section">
-                <section className="cities__map map">
-                  <Map placesList={placesList
-                    .map((place)=>Object.assign({}, {offerId: place.offerId, gps: place.gps}))}/>
+            {placesList.length ? (
+              <div className="cities__places-container container">
+                <section className="cities__places places">
+                  <h2 className="visually-hidden">Places</h2>
+                  <b className="places__found">{placesList.length} places to stay in {currentCity.cityName}</b>
+                  <PlacesSorting/>
+                  <PlacesList type={`cities__place-card`} placesList={placesList} moveHandler={changeActiveCard}/>
                 </section>
-              </div>
-            </div>
+                <div className="cities__right-section">
+                  <section className="cities__map map">
+                    <Map placesList={placesList
+                    .map((place)=>Object.assign({}, {offerId: place.offerId, gps: place.gps}))}/>
+                  </section>
+                </div>
+              </div>)
+              : <PlacesContainerEmpty cityName={currentCity.cityName}/>}
           </div>
         </main>
       </div>
