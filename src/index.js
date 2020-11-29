@@ -1,14 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {createStore} from "redux";
+import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
+import thunk from "redux-thunk";
+import {createAPI} from "./services/api";
 import App from "./components/app/app";
 import {reducer} from "./store/reducer";
+import {fetchOffers} from "./store/action";
+
+const api = createAPI();
 
 const store = createStore(
     reducer, /* preloadedState, */
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    applyMiddleware(thunk.withExtraArgument(api))
 );
+
+store.dispatch(fetchOffers());
 
 ReactDOM.render(
     <Provider store={store}>

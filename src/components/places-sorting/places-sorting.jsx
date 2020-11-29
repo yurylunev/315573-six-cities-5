@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../store/action";
-import withOpen from "../hocs/with-open/with-open";
-import withSelectedId from "../hocs/with-selected-id/with-selected-id";
+import {onSortingTypeChange} from "../../store/action";
+import withToggle from "../hocs/with-toggle/with-toggle";
+import withItemSelection from "../hocs/with-item-selection/with-item-selection";
 
 const sortingTypes = [
   {type: `popular`, sortText: `Popular`},
@@ -39,7 +39,7 @@ const PlacesSorting = (props) => (
 
 const mapDispatchToProps = (dispatch) => ({
   onSortingChange: (sortingType) => {
-    dispatch(ActionCreator.onSortingTypeChange(sortingType));
+    dispatch(onSortingTypeChange(sortingType));
   }
 });
 
@@ -52,4 +52,4 @@ PlacesSorting.propTypes = {
 };
 
 export {PlacesSorting};
-export default connect(null, mapDispatchToProps)(withSelectedId(withOpen(PlacesSorting)));
+export default connect(null, mapDispatchToProps)(withItemSelection(withToggle(PlacesSorting)));

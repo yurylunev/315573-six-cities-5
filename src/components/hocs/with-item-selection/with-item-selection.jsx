@@ -1,7 +1,7 @@
 import React from 'react';
 
-const withSelectedId = (Wrapped, initialId = 0) =>
-  class WithSelectedId extends React.PureComponent {
+const withItemSelection = (Wrapped, initialId = 0) =>
+  class WithItemSelection extends React.PureComponent {
     constructor(props) {
       super(props);
       this.state = {
@@ -21,4 +21,4 @@ const withSelectedId = (Wrapped, initialId = 0) =>
     }
   };
 
-export default withSelectedId;
+export default withItemSelection;

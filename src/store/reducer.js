@@ -1,11 +1,9 @@
 import {ActionType} from "./action";
-import cities from "../mocks/cities";
-import offers from "../mocks/offers";
 
 const initialState = {
-  cities,
-  currentCity: cities[3],
-  offers,
+  cities: [],
+  currentCity: {},
+  offers: [],
   activeCard: {},
   sortingType: `popular`,
 };

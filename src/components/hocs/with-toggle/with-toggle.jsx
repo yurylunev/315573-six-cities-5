@@ -1,7 +1,7 @@
 import React from "react";
 
-const withOpen = (Wrapped) =>
-  class WithOpen extends React.PureComponent {
+const withToggle = (Wrapped) =>
+  class WithToggle extends React.PureComponent {
     constructor(props) {
       super(props);
       this.state = {
@@ -20,4 +20,4 @@ const withOpen = (Wrapped) =>
     }
   };
 
-export default withOpen;
+export default withToggle;
