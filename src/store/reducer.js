@@ -1,6 +1,4 @@
 import {ActionType} from "./action";
-import cities from "../mocks/cities";
-import offers from "../mocks/offers";
 
 const initialState = {
   cities,

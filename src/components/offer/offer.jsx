@@ -1,7 +1,5 @@
 import React from "react";
 import {offerTypes} from "../../mocks/offers.proptypes";
-import reviews from "../../mocks/reviews";
-import nearPlacesList from "../../mocks/near-places-list";
 import PropertyReviews from "../property-reviews/property-reviews";
 import Map from "../map/map";
 import PlaceCard from "../place-card/place-card";
