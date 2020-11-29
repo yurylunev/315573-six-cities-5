@@ -1,7 +1,7 @@
 import React from "react";
 
 const withToggle = (Wrapped) =>
-  class WithOpen extends React.PureComponent {
+  class WithToggle extends React.PureComponent {
     constructor(props) {
       super(props);
       this.state = {
