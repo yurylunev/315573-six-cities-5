@@ -6,12 +6,12 @@ import Map from "../map/map";
 import LocationsList from "../locations-list/locations-list";
 import {citiesTypes, cityTypes} from "../../mocks/cities.proptypes";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../store/action";
+import {changeCity, changeActiveCard} from "../../store/action";
 import PlacesSorting from "../places-sorting/places-sorting";
 import PlacesContainerEmpty from "../places-container-empty/places-container-empty";
 
 const Main = (props) => {
-  const {currentCity, cities, offers, onCityChange, changeActiveCard} = props;
+  const {currentCity, cities, offers, onCityChange} = props;
   const placesList = offers.filter((place) => place.cityId === currentCity.cityId);
 
   return (
@@ -82,10 +82,10 @@ Main.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   onCityChange: (city) => {
-    dispatch(ActionCreator.changeCity(city));
+    dispatch(changeCity(city));
   },
   changeActiveCard(activeCard) {
-    dispatch(ActionCreator.changeActiveCard(activeCard));
+    dispatch(changeActiveCard(activeCard));
   }
 });
 

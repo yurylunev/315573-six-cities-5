@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../store/action";
+import {onSortingTypeChange} from "../../store/action";
 import withToggle from "../hocs/with-toggle/with-toggle";
 import withItemSelection from "../hocs/with-item-selection/with-item-selection";
 
@@ -39,7 +39,7 @@ const PlacesSorting = (props) => (
 
 const mapDispatchToProps = (dispatch) => ({
   onSortingChange: (sortingType) => {
-    dispatch(ActionCreator.onSortingTypeChange(sortingType));
+    dispatch(onSortingTypeChange(sortingType));
   }
 });
 
