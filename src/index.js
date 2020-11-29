@@ -7,13 +7,12 @@ import {createAPI} from "./services/api";
 import App from "./components/app/app";
 import {reducer} from "./store/reducer";
 
+const api = createAPI();
 
 const store = createStore(
     reducer, /* preloadedState, */
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    applyMiddleware(thunk.withExtraArgument(api))
 );
-
-const api = createAPI();
 
 ReactDOM.render(
     <Provider store={store}>
