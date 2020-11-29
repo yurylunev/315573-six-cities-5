@@ -107,11 +107,11 @@ const Offer = (props) => {
                 }
                 </div>
               </div>
-              <PropertyReviews reviews={reviews}/>
+              <PropertyReviews reviews={[]}/>
             </div>
           </div>
           <section className="property__map map">
-            <Map placesList={nearPlacesList}/>
+            <Map placesList={[]}/>
           </section>
         </section>
         <div className="container">
@@ -119,7 +119,7 @@ const Offer = (props) => {
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
               {
-                nearPlacesList.map((placeCard)=>(
+                [].map((placeCard)=>(
                   <PlaceCard type={`near-places__card`} key={placeCard.offerId}
                     card={placeCard}
                     moveHandler={()=>null} />

@@ -1,9 +1,9 @@
 import {ActionType} from "./action";
 
 const initialState = {
-  cities,
-  currentCity: cities[3],
-  offers,
+  cities: [],
+  currentCity: {},
+  offers: [],
   activeCard: {},
   sortingType: `popular`,
 };
