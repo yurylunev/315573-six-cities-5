@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
 import {offerTypes} from "../../mocks/offers.proptypes";
+import {NameSpace} from "../../store/reducers/root-reducer";
 
 class Map extends React.PureComponent {
   constructor(props) {
@@ -41,15 +42,15 @@ class Map extends React.PureComponent {
   }
 
   componentDidMount() {
-    const city = [52.38333, 4.9];
-    const zoom = 12;
+    const center = this.props.placesList[0] ? this.props.placesList[0].cityLocation : [50.9, 6.8];
+    const zoom = this.props.placesList[0] ? this.props.placesList[0].zoom : 12;
     this.map = leaflet.map(`map`, {
-      center: city,
+      center,
       zoom,
       zoomControl: false,
       marker: true
     });
-    this.map.setView(city, zoom);
+    this.map.setView(center, zoom);
     leaflet
         .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
           attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
@@ -61,8 +62,10 @@ class Map extends React.PureComponent {
   }
 
   componentDidUpdate() {
-    const center = [52.38333, 4.9];
-    this.map.setView(center, 12);
+    this.map.setView(
+        this.props.activeCard.cityLocation ? this.props.activeCard.cityLocation : [50.9, 6.8],
+        this.props.activeCard.zoom ? this.props.activeCard.zoom : 12
+      );
 
     if (this.props.activeCard.offerId !== undefined) {
       this._removeMarkers();
@@ -84,7 +87,7 @@ Map.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  activeCard: state.activeCard
+  activeCard: state[NameSpace.STATE].activeCard
 });
 
 export {Map};

@@ -8,7 +8,7 @@ const LocationsList = (props) => {
     {cities.map((city) => (
       <li key={city.cityId} className="locations__item" onClick={() => clickHandler(city)}>
         <a className={
-          `locations__item-link tabs__item${city.cityId === currentCity.cityId ? ` tabs__item--active` : ``}`
+          `locations__item-link tabs__item${city.cityName === currentCity ? ` tabs__item--active` : ``}`
         } href="#">
           <span>{city.cityName}</span>
         </a>

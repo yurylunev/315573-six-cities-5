@@ -1,9 +1,5 @@
 import {loadOffers, requireAuthorization, changeCity} from "./action";
-
-export const AuthorizationStatus = {
-  AUTH: `AUTH`,
-  NO_AUTH: `NO_AUTH`,
-};
+import {AuthorizationStatus} from "../const";
 
 export const fetchOffers = () => (dispatch, _getState, api) => (
   api.get(`/hotels`)

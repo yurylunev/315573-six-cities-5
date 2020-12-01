@@ -17,7 +17,7 @@ const PlaceCard = (props) => {
         </div>
         : null}
       <div className={`${type.split(`__`)[0]}__image-wrapper place-card__image-wrapper`}>
-        <Link to="/offer/2">
+        <Link to={`/offer/${props.card.offerId}`}>
           <img className="place-card__image" src={images[0]}
             width={imageSize.width}
             height={imageSize.height}

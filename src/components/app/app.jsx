@@ -1,33 +1,41 @@
 import React from "react";
-import {Switch, Route, BrowserRouter} from "react-router-dom";
+import {Switch, Route, Router, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
+import {createBrowserHistory} from "history";
+import PrivateRoute from "../private-route/private-route";
 import Main from "../main/main";
-import SignIn from "../sign-in/sign-in";
 import Favorites from "../favorites/favorites";
 import Offer from "../offer/offer";
 import {offersListTypes} from "../../mocks/offers.proptypes";
 import {citiesTypes, cityTypes} from "../../mocks/cities.proptypes";
-import {getCities, getFavorites, getOffers, getCurrentCity} from "../../store/selectors";
+import {getFavorites, getOffers, isAuthorizedUser} from "../../store/selectors";
+import {SignIn} from "../sign-in/sign-in";
 
-const App = (props) => {
-  console.log({props});
+const browserHistory = createBrowserHistory();
+
+const App = ({isAuth, favoritesList}) => {
   return (
-    <BrowserRouter>
+    <Router history={browserHistory}>
       <Switch>
         <Route exact path="/">
-          <Main offers={props.offers} cities={props.cities}/>
+          <Main/>
         </Route>
-        <Route exact path="/login">
-          <SignIn/>
-        </Route>
-        <Route exact path="/favorites">
-          <Favorites placesList={props.favoritesList}/>
-        </Route>
+        <Route
+          path="/login"
+          exact
+          render={() => (isAuth ? <Redirect to={`/`} /> : <SignIn/>)}
+        />
+        <PrivateRoute
+          exact
+          path="/favorites"
+          render={() => (<Favorites placesList={favoritesList}/>)}
+        />
         <Route exact path="/offer/:id">
-          <Offer offer={props.offers[0]}/>
+          <Offer/>
         </Route>
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 };
 
@@ -35,14 +43,15 @@ App.propTypes = {
   offers: offersListTypes.placesList,
   cities: citiesTypes,
   currentCity: cityTypes,
-  favoritesList: offersListTypes
+  favoritesList: offersListTypes,
+  isAuth: PropTypes.bool.isRequired,
+  getFavorites: offersListTypes
 };
 
 const mapStateToProps = (state) => ({
-    offers: getOffers(state),
-    cities: getCities(state),
-    favoritesList: getFavorites(state),
-    currentCity: getCurrentCity(state),
+  offers: getOffers(state),
+  favoritesList: getFavorites(state),
+  isAuth: isAuthorizedUser(state),
 });
 
 export {App};

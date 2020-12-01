@@ -1,15 +1,13 @@
 import {ActionType} from "../action";
-console.log(`state-reducer`);
+import {NameSpace} from "./root-reducer";
 const initialState = {
   cities: [],
-  currentCity: {},
-  offers: [],
+  currentCity: 'Amsterdam',
   activeCard: {},
   sortingType: `popular`,
 };
 
 const stateReducer = (state = initialState, action) => {
-  console.log({state, action});
   switch (action.type) {
     case ActionType.CHANGE_CITY:
       return Object.assign({}, state, {currentCity: action.payload});

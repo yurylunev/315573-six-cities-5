@@ -7,7 +7,8 @@ import {createAPI} from "./services/api";
 import App from "./components/app/app";
 import rootReducer from "./store/reducers/root-reducer";
 import {requireAuthorization} from "./store/action";
-import {AuthorizationStatus, checkAuth, fetchOffers} from "./store/api-actions";
+import {checkAuth, fetchOffers} from "./store/api-actions";
+import {AuthorizationStatus} from "./const";
 
 const api = createAPI(
     ()=>store.dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH))
