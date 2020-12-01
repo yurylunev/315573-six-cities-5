@@ -2,7 +2,8 @@ export const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   SET_ACTIVE_CARD: `SET_ACTIVE_CARD`,
   CHANGE_SORTING_TYPE: `CHANGE_SORTING_TYPE`,
-  LOAD_OFFERS: `LOAD_OFFERS`
+  LOAD_OFFERS: `LOAD_OFFERS`,
+  REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
 };
 
 export const changeCity = (city) => ({
@@ -22,10 +23,11 @@ export const onSortingTypeChange = (sortingType) => ({
 
 export const loadOffers = (offers) => ({
   type: ActionType.LOAD_OFFERS,
-  payload: offers
+  payload: offers.data,
 });
 
-export const fetchOffers = () => (dispatch, _getState, api) => (
-  api.get(`/hotels`)
-        .then(({data}) => dispatch(loadOffers(data)))
-);
+export const requireAuthorization = (status) => ({
+  type: ActionType.REQUIRED_AUTHORIZATION,
+  payload: status,
+});
+

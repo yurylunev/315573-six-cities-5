@@ -1,4 +1,4 @@
-import {ActionType} from "./action";
+import {ActionType} from "../action";
 
 const initialState = {
   cities: [],
@@ -8,7 +8,7 @@ const initialState = {
   sortingType: `popular`,
 };
 
-const reducer = (state = initialState, action) => {
+const stateReducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_CITY:
       return Object.assign({}, state, {currentCity: action.payload});
@@ -39,5 +39,4 @@ const sortByType = (currentSortType) => (a, b) => {
 
 const sortWrapper = (a, b) => ((a < b) ? -1 : +(a > b));
 
-
-export {reducer};
+export default stateReducer;

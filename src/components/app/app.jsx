@@ -7,24 +7,23 @@ import Favorites from "../favorites/favorites";
 import Offer from "../offer/offer";
 import {offersListTypes} from "../../mocks/offers.proptypes";
 import {citiesTypes, cityTypes} from "../../mocks/cities.proptypes";
+import {getCities, getFavorites, getOffers} from "../../store/selectors";
 
-const App = (props) => {
-  const {offers, cities, currentCity} = props;
-
+const App = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main offers={offers} cities={cities} currentCity={currentCity}/>
+          <Main offers={getOffers} cities={getCities}/>
         </Route>
         <Route exact path="/login">
           <SignIn/>
         </Route>
         <Route exact path="/favorites">
-          <Favorites placesList={offers.filter((place) => place.properties.isBookmark)}/>
+          <Favorites placesList={getFavorites}/>
         </Route>
         <Route exact path="/offer/:id">
-          <Offer offer={offers[0]}/>
+          <Offer offer={getOffers[0]}/>
         </Route>
       </Switch>
     </BrowserRouter>
@@ -38,10 +37,11 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-
   return Object.assign({}, state, {
-    offers: state.offers,
-    cities: state.cities
+    STATE: {offers: getOffers,
+      cities: getCities,
+      favoritesList: getFavorites
+    }
   });
 };
 
