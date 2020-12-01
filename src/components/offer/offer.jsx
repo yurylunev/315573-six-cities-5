@@ -3,35 +3,15 @@ import {offerTypes} from "../../mocks/offers.proptypes";
 import PropertyReviews from "../property-reviews/property-reviews";
 import Map from "../map/map";
 import PlaceCard from "../place-card/place-card";
+import {connect} from "react-redux";
+import {getOfferById} from "../../store/selectors";
+import Header from "../header/header";
 
 const Offer = (props) => {
   const {offer} = props;
-
   return (
     <div className="page">
-      <header className="header">
-        <div className="container">
-          <div className="header__wrapper">
-            <div className="header__left">
-              <a className="header__logo-link" href="/">
-                <img className="header__logo" src="/img/logo.svg" alt="6 cities logo" width="81"
-                  height="41"/>
-              </a>
-            </div>
-            <nav className="header__nav">
-              <ul className="header__nav-list">
-                <li className="header__nav-item user">
-                  <a className="header__nav-link header__nav-link--profile" href="#">
-                    <div className="header__avatar-wrapper user__avatar-wrapper">
-                    </div>
-                    <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header/>
 
       <main className="page__main page__main--property">
         <section className="property">
@@ -40,7 +20,7 @@ const Offer = (props) => {
               {
                 offer.images.map((img, i)=>{
                   return <div key={i} className="property__image-wrapper">
-                    <img className="property__image" src={`/${img}`} alt="Photo studio"/>
+                    <img className="property__image" src={`${img}`} alt="Photo studio"/>
                   </div>;
                 })
               }
@@ -48,7 +28,7 @@ const Offer = (props) => {
           </div>
           <div className="property__container container">
             <div className="property__wrapper">
-              {(offer.properties.mark !== undefined) &&
+              {(offer.properties.mark !== ``) &&
               <div className="property__mark">
                 <span>Premium</span>
               </div>}
@@ -68,7 +48,7 @@ const Offer = (props) => {
                   <span style={{width: `${Math.round(offer.ratingStars * 20)}%`}}/>
                   <span className="visually-hidden">Rating</span>
                 </div>
-                <span className="property__rating-value rating__value">4.8</span>
+                <span className="property__rating-value rating__value">{offer.ratingStars}</span>
               </div>
               <ul className="property__features">{
                 Object.keys(offer.features).map((featureName, i)=>(
@@ -137,4 +117,9 @@ Offer.propTypes = {
   offer: offerTypes
 };
 
-export default Offer;
+const mapStateToProps = (state) => ({
+  offer: getOfferById(state),
+});
+
+export {Offer};
+export default connect(mapStateToProps)(Offer);

@@ -5,6 +5,7 @@ export const ActionType = {
   LOAD_OFFERS: `LOAD_OFFERS`,
   INIT_STATE: `INIT_STATE`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  LOGIN_USER: `LOGIN_USER`,
 };
 
 export const changeCity = (city) => ({
@@ -37,3 +38,7 @@ export const requireAuthorization = (status) => ({
   payload: status,
 });
 
+export const loginUser = (userName) => ({
+  type: ActionType.LOGIN_USER,
+  payload: userName,
+});

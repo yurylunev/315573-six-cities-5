@@ -1,8 +1,14 @@
 import {createSelector} from "reselect";
 import {NameSpace} from "./reducers/root-reducer";
 import options from "../mocks/options";
+import {AuthorizationStatus} from "../const";
 
 export const getOffersRaw = (state) => state[NameSpace.DATA].offers;
+
+export const getUserInfo = (state) => state[NameSpace.USER].userName;
+export const isAuthorizedUser = (state) => state[NameSpace.USER].authorizationStatus === AuthorizationStatus.AUTH;
+
+export const getCurrentOfferId = () => location.pathname.split(`/`).reverse()[0];
 
 export const getOffers = createSelector(
     getOffersRaw,

@@ -3,6 +3,7 @@ import {AuthorizationStatus} from "../../const";
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
+  userName: ``
 };
 
 const user = (state = initialState, action) => {
