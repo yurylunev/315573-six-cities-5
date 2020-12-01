@@ -1,5 +1,5 @@
 import {ActionType} from "../action";
-
+console.log(`state-reducer`);
 const initialState = {
   cities: [],
   currentCity: {},
@@ -9,6 +9,7 @@ const initialState = {
 };
 
 const stateReducer = (state = initialState, action) => {
+  console.log({state, action});
   switch (action.type) {
     case ActionType.CHANGE_CITY:
       return Object.assign({}, state, {currentCity: action.payload});

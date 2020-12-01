@@ -3,6 +3,7 @@ export const ActionType = {
   SET_ACTIVE_CARD: `SET_ACTIVE_CARD`,
   CHANGE_SORTING_TYPE: `CHANGE_SORTING_TYPE`,
   LOAD_OFFERS: `LOAD_OFFERS`,
+  INIT_STATE: `INIT_STATE`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
 };
 
@@ -24,6 +25,11 @@ export const onSortingTypeChange = (sortingType) => ({
 export const loadOffers = (offers) => ({
   type: ActionType.LOAD_OFFERS,
   payload: offers.data,
+});
+
+export const initState = (state) => ({
+  type: ActionType.INIT_STATE,
+  payload: state.data,
 });
 
 export const requireAuthorization = (status) => ({

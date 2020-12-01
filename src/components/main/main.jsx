@@ -9,12 +9,11 @@ import {connect} from "react-redux";
 import {changeCity, changeActiveCard} from "../../store/action";
 import PlacesSorting from "../places-sorting/places-sorting";
 import PlacesContainerEmpty from "../places-container-empty/places-container-empty";
-import {NameSpace} from "../../store/reducers/root-reducer";
 
 const Main = (props) => {
-  const {currentCity, cities, onCityChange} = props[NameSpace.STATE];
-  const placesList = props[NameSpace.STATE].offers;
-
+  const {currentCity, cities, onCityChange} = props;
+  const placesList = props.offers;
+  console.log(111, props);
   return (
     <>
       <div className="page page--gray page--main">
@@ -89,6 +88,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(changeActiveCard(activeCard));
   }
 });
+
 
 export {Main};
 export default connect(null, mapDispatchToProps)(Main);

@@ -2,7 +2,7 @@ import {createSelector} from "reselect";
 import {NameSpace} from "./reducers/root-reducer";
 import options from "../mocks/options";
 
-export const getOffersRaw = (state) => state[NameSpace.DATA];
+export const getOffersRaw = (state) => state[NameSpace.DATA].offers;
 
 export const getOffers = createSelector(
     getOffersRaw,
@@ -33,19 +33,20 @@ export const getOffers = createSelector(
       description: [offer.description],
       gps: [offer.city.location.latitude, offer.city.location.longitude],
       zoom: offer.city.location.zoom,
-    })));
+    }))
+);
 
-export const getCurrentCity = (state) => state[NameSpace.STATE].currentCity;
+export const getCurrentCity = (state) => state[NameSpace.DATA].currentCity;
 
 export const getCities = createSelector(
     getOffersRaw,
-    (offers) => Array.from(new Set(offers[NameSpace.DATA].map((offer) => offer.city.name)))
+    (offers) => Array.from(new Set(offers.map((offer) => offer.city.name)))
         .map((city)=>({cityName: city}))
 );
 
 export const getFavorites = createSelector(
-    getOffersRaw,
-    (offers) =>
+    getOffers,
+    (offers) => console.log(444, offers) ||
       offers.filter((offer) => !!offer.properties.isBookmark)
 );
 

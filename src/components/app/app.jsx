@@ -7,23 +7,24 @@ import Favorites from "../favorites/favorites";
 import Offer from "../offer/offer";
 import {offersListTypes} from "../../mocks/offers.proptypes";
 import {citiesTypes, cityTypes} from "../../mocks/cities.proptypes";
-import {getCities, getFavorites, getOffers} from "../../store/selectors";
+import {getCities, getFavorites, getOffers, getCurrentCity} from "../../store/selectors";
 
-const App = () => {
+const App = (props) => {
+  console.log({props});
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main offers={getOffers} cities={getCities}/>
+          <Main offers={props.offers} cities={props.cities}/>
         </Route>
         <Route exact path="/login">
           <SignIn/>
         </Route>
         <Route exact path="/favorites">
-          <Favorites placesList={getFavorites}/>
+          <Favorites placesList={props.favoritesList}/>
         </Route>
         <Route exact path="/offer/:id">
-          <Offer offer={getOffers[0]}/>
+          <Offer offer={props.offers[0]}/>
         </Route>
       </Switch>
     </BrowserRouter>
@@ -33,17 +34,16 @@ const App = () => {
 App.propTypes = {
   offers: offersListTypes.placesList,
   cities: citiesTypes,
-  currentCity: cityTypes
+  currentCity: cityTypes,
+  favoritesList: offersListTypes
 };
 
-const mapStateToProps = (state) => {
-  return Object.assign({}, state, {
-    STATE: {offers: getOffers,
-      cities: getCities,
-      favoritesList: getFavorites
-    }
-  });
-};
+const mapStateToProps = (state) => ({
+    offers: getOffers(state),
+    cities: getCities(state),
+    favoritesList: getFavorites(state),
+    currentCity: getCurrentCity(state),
+});
 
 export {App};
 export default connect(mapStateToProps)(App);
